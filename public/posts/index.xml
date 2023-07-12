@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on ERROR-Eutopia Blog </title>
+    <link>/posts/</link>
+    <description>Recent content in Posts on ERROR-Eutopia Blog </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 12 Jul 2023 18:02:06 +0800</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>One</title>
+      <link>/posts/one/</link>
+      <pubDate>Wed, 12 Jul 2023 18:02:06 +0800</pubDate>
+      
+      <guid>/posts/one/</guid>
+      <description>咕咕咕
+测试ing
+MD文档 懒得写了
+开摆！！！
+这布局怎么那么奇怪啊(#`O′)</description>
+    </item>
+    
+    <item>
+      <title>Two</title>
+      <link>/posts/two/</link>
+      <pubDate>Wed, 12 Jul 2023 18:02:06 +0800</pubDate>
+      
+      <guid>/posts/two/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

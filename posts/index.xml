@@ -30,5 +30,15 @@
 环境：Kali GNU/Linux Rolling x [6.1.0-kali9] Xfce 4.18 Zsh 5.9</description>
     </item>
     
+    <item>
+      <title>关于</title>
+      <link>/posts/%E5%85%B3%E4%BA%8E-0.2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/%E5%85%B3%E4%BA%8E-0.2/</guid>
+      <description>&lt;!DOCTYPE html&gt; 关于 增加了一些样式
+ERROR&#39;s Blog For Beta Ver 0.2 环境变更：Kali GNU/Linux Rolling x（6.3.0-kali1-amd64）</description>
+    </item>
+    
   </channel>
 </rss>

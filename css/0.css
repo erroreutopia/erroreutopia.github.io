@@ -1,0 +1,15 @@
+.a {
+    background-color: rgba(172,89,225,0.5);
+    background: url("image/0.png");
+    background-size:cover;
+}
+.b {
+    text-align: center;
+    color:#55aadd;
+  /*  background-color:rgba(110,99,125,0.7);*/
+    border-radius:15px;
+   background-size:cover;
+}
+.c {
+    background-color: rgba(3,4,11,0.5); 
+}

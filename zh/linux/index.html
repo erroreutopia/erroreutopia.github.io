@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light"><head>
+    <title>Linux打包流程 For wine Appimage · </title>
+    <meta charset="utf-8">
+    
+    <meta name="generator" content="Hugo 0.121.1">
+    <meta property="og:title" content="Linux打包流程 For wine Appimage" />
+<meta property="og:description" content="Linux打包流程 For wine Appimage" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/zh/linux/" /><meta property="og:image" content="/images/profile.png" /><meta property="article:section" content="zh" />
+<meta property="article:published_time" content="2024-01-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-01-07T00:00:00+00:00" /><meta property="og:site_name" content="Error Eutopia" />
+
+
+
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="description" content="Nya~">
+    
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/style.min.565d8c479597aa43658922d4b31e286529a7525a22c9546fa1018fc5e5ef6d86.css" integrity="sha256-Vl2MR5WXqkNliSLUsx4oZSmnUloiyVRvoQGPxeXvbYY=" crossorigin="anonymous" type="text/css">
+
+    
+    
+    
+    <script type="text/javascript" src="/js/heyo-header.min.a3fa728a9f57833a31dfb45c48caaf1e4890c8c97f07bd7133fc2359745edb5d.js" integrity="sha256-o/pyip9Xgzox37RcSMqvHkiQyMl/B71xM/wjWXRe210=" crossorigin="anonymous"></script>
+
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/fonts.9398921f2d404983c2b7f9a68ddc72e3f5e58a3e38b0a8e4a70d75c12ebfb7c5.css" integrity="sha256-k5iSHy1ASYPCt/mmjdxy4/Xlij44sKjkpw11wS6/t8U=" crossorigin="anonymous">
+
+    
+    
+    
+    <script type="text/javascript" src="/js/sidebar-toc.min.788b639e2ec681549740b90b3b865d5f9e1789e3ca9c06ccc45d65655434c954.js" integrity="sha256-eItjni7GgVSXQLkLO4ZdX54XiePKnAbMxF1lZVQ0yVQ=" crossorigin="anonymous"></script>
+
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js" defer></script>
+
+        
+        
+        <script type="text/javascript" src="/js/sketch-graph.26b92ed9317bdc6f35642d588bdf3283f40998846e01cf4bee22a126907fbf3b.js" integrity="sha256-Jrku2TF73G81ZC1Yi98yg/QJmIRuAc9L7iKhJpB/vzs=" crossorigin="anonymous" defer></script>
+
+        
+        
+        <script type="text/javascript" src="/js/sketch-digitalRain.af8a7b5c4428cc62d5bf49bf2698d4112c2459ee0c22c1c753ab304aef69888a.js" integrity="sha256-r4p7XEQozGLVv0m/JpjUESwkWe4MIsHHU6swSu9piIo=" crossorigin="anonymous" defer></script>
+
+        
+        
+        <script type="text/javascript" src="/js/sketch-circleBrushStrokes.fe8fc3ee52e1d90e9236be8c36a27711efa024beb4da304829f95dfbb61d6e84.js" integrity="sha256-/o/D7lLh2Q6SNr6MNqJ3Ee&#43;gJL602jBIKfld&#43;7YdboQ=" crossorigin="anonymous" defer></script>
+
+        
+        
+        <script type="text/javascript" src="/js/sketch-meta.71b5202ea881c86ac19e4b55414656a5444204a4ba08ff7368a5aa99c0a60949.js" integrity="sha256-cbUgLqiByGrBnktVQUZWpURCBKS6CP9zaKWqmcCmCUk=" crossorigin="anonymous" defer></script>
+
+        
+        
+        <script type="text/javascript" src="/js/sidebar-sketch.min.2e95015880993ef9abcad62d111decea22406616931bce193254bf8af2339953.js" integrity="sha256-LpUBWICZPvmrytYtER3s6iJAZhaTG84ZMlS/ivIzmVM=" crossorigin="anonymous" defer></script>
+    
+    
+    
+    <link rel="shortcut icon" href="/favicons/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="canonical" href="/zh/linux/">
+    
+    
+    
+    
+    
+
+    
+    <meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="/images/profile.png" /><meta name="twitter:title" content="Linux打包流程 For wine Appimage"/>
+<meta name="twitter:description" content="Linux打包流程 For wine Appimage"/>
+
+</head><body>
+        <div class="main">
+            <div class="page-top">
+    <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false" >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    <ul class="nav" id="navMenu">
+        
+        
+        <li class="grow"></li>
+        
+        <li>
+            <a class="theme-switch" title="Switch Theme">
+                <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+            <div class="sidebar" id="sidebar">
+    <div class="top-toc">
+        <img src="/images/iw.jpg" alt="profile picture">
+        
+        <a href="/">Error Eutopia</a>
+    </div>
+    
+    <div class="middle-sidebar grow" id="middle-sidebar">
+        
+            
+            
+                
+            
+
+            
+                
+                
+                
+                
+                <div
+                    id="sidebar-sketch"
+                    data-sketch="Graph"
+                    data-sketch-starting=""
+                    data-sketch-show-hover="false"></div>
+            
+        
+    </div>
+
+    <div class="footer">
+        <ul class="social-links">
+            
+            <li>
+                <a href="https://github.com/erroreutopia" target="_blank" rel="noopener noreferrer" rel="me" aria-label="GitHub">
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://github.com/EEutopia" target="_blank" rel="noopener noreferrer" rel="me" aria-label="GitHub">
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                </a>
+            </li>
+            
+        </ul>
+
+        <div class="by">by  <b>·</b> 2024</div>
+    </div>
+</div>
+            <div class="content">
+<div class="post">
+    
+    <div class="post-title">
+        <h1>Linux打包流程 For wine Appimage</h1>
+        
+    </div>
+    <div class="post-content">
+        <h5 id="首先感谢一下linuxgamecn提供的标准化打包工具">首先,感谢一下linuxgame.cn提供的标准化打包工具</h5>
+<h5 id="再感谢一下shinnkucom的gal">再感谢一下shinnku.com的Gal</h5>
+<p>(笑)
+请让我把工具准备好:
+一个Linux发行版(WSL也可以),我选用的是KaliLinux
+Appimagetool(Github上有)</p>
+<p>以及来自linuxgame网站的打包工具 <a href="https://github.com/Gamuxorg/prebuilt-game-package-tool">链接</a>{自带旧版本appimagetool以及wine依赖,但我们不需要}</p>
+<p>记得下好游戏并成功运行在本机wine环境上</p>
+<p>以及打包的灵魂:wine (可从archlinux包仓库或者debian包仓库获得)
+<img src="/images/6x.png" alt="6x.png">
+这里我们演示的是&hellip;&hellip; GINKA !
+<img src="/images/0x.png" alt="0x.png">
+成品演示:
+<img src="/images/7x.png" alt="7x.png"></p>
+<h5 id="在开始之前我觉得我得解释一下wine是什么">在开始之前,我觉得我得解释一下,Wine是什么</h5>
+<p>Wine （“<em>Wine Is Not an Emulator</em>” 的首字母缩写）是一个能够在多种 POSIX-compliant 操作系统（诸如 Linux，macOS 及 BSD 等）上运行 Windows 应用的兼容层。Wine 不是像虚拟机或者模拟器一样模仿内部的 Windows 逻辑，而是將 Windows API 调用翻译成为动态的 POSIX 调用，免除了性能和其他一些行为的内存占用，让你能够干净地集合 Windows 应用到你的桌面。</p>
+<p>Wine 项目由 Bob Amstadt 于 1993 年发起，旨在寻求一种在 Linux 上运行 Windows 3.1 程序的办法。不久之后，Alexandre Julliard 开始接手领导 Wine 的开发，从此由他管理这个项目。 多年以来，随着 Windows API 和应用为了适应新硬件及软件而不断演变，Wine 也一直不断发展来支持新的特性，移植到更多其他系统，并且更加稳定，提供着更好的用户体验。</p>
+<p>通过确立一个宏伟的目标，在 2008 年项目到达 v1.0 之前，Wine 一直稳健地持续了 15 年之久，那是第一个稳定版。 多个版本以后，虽然还有许多工作要做，但今天 Wine 仍然在活跃地开发着。 并且有大约数以百万人计的人们使用 Wine 在他们所选择的系统上运行 Windows 软件。
+开放源代码和用户驱动的</p>
+<p>Wine 将会永远是自由软件。 大约一半的 Wine 代码由志愿者编写，其余部分由商业公司赞助。特别是 CodeWeavers，出售着一个 Wine 的支持版本。</p>
+<p>Wine 也是高度依赖用户社区的。用户自愿贡献时间在我们的 Application Database 上分享技巧和他们程序的运行测试结果，在我们的 Bug-Tracker 上撰写 bug 报告提醒开发者问题所在，或者在论坛上回复问题。
+(来自wine官网 <a href="https://www.winehq.org/">链接</a>)
+(注:无论是最近苹果的游戏打包工具还是安卓的win模拟器,本质上都是wine哦~)</p>
+<h5 id="关于appimage">关于APPIMAGE</h5>
+<p>简单.</p>
+<p>AppImage的核心思想是一个应用程序 = 一个文件 。每个AppImage都包含应用程序以及应用程序运行所需的所有文件。换句话说，除了操作系统本身的基础组件，Appimage不需要依赖包即可运行。</p>
+<p>可靠.</p>
+<p>AppImage 格式是上游应用打包的理想选择，这意味着你可以直接从开发者那里获取软件，而不需要任何中间步骤，这完全符合开发者意图。非常迅速。</p>
+<p>快速.</p>
+<p>AppImage应用可以直接下载并且运行，无需安装，并且不需要root权限。
+(来自appimage官网<a href="https://appimage.org/">链接</a>)</p>
+<h5 id="打包流程">打包流程</h5>
+<p>事实上没什么可以讲的,请看图:
+<img src="/images/2x.png" alt="2x.png">
+<img src="/images/11x.png" alt="11x.png">
+这个是软件入口,gamux将它指向了文件&quot;$(pwd)/usr/bin/games&quot;(好像还有一种是指向.desktop桌面文件的)</p>
+<h5 id="我们再来看看脚本内容">我们再来看看脚本内容</h5>
+<p>首先是config,这是一个配置文件</p>
+<pre tabindex="0"><code>#!/bin/bash
+
+###设置，根据需要修改###
+#游戏名称,可以随意起，请务必使用英文，游戏名切勿包含空格及其他符号
+GAMUX_GAME_NAME=&#34;GINKA&#34;
+
+#游戏所在文件夹的名称，默认为game
+GAMUX_GAME_BIN_DIR=&#34;game&#34;
+
+#game文件夹中游戏执行文件
+GAMUX_GAME_EXEC=&#34;run&#34;
+
+#是否启用steam-runtime，0为不启用，1为启用。若不启用，可以删除当前目录的steam-runtime节省游戏体积
+#非x86游戏不支持steam-runtime
+GAMUX_STEAMRUNTIME=0
+
+#x86平台只支持在64位系统运行，不论游戏是32或64位
+#arm平台只支持在arm64系统运行，不论armel、armhf或arm64的游戏
+PLATFORM=amd64
+
+###定义变量部分，无需修改###
+HERE=$(cd &#34;$(dirname &#34;$0&#34;)&#34;;pwd)
+cd &#34;${HERE}&#34;
+
+GAMUX_GAME_READONLY=&#34;${HERE}/${GAMUX_GAME_BIN_DIR}&#34;
+GAMUX_GAME_DIR=&#34;${HOME}/.local/share/gamux/${GAMUX_GAME_NAME}&#34;
+GAMUX_GAME_DATA=&#34;${GAMUX_GAME_DIR}/data&#34;
+GAMUX_GAME_DATA_TMP=&#34;${GAMUX_GAME_DIR}/${GAMUX_GAME_NAME}_gamux_mountdir&#34;
+
+###自定义部分，补充默认脚本的不足###
+function gamux_function1() {
+#  if [ ! -d &#34;${GAMUX_GAME_READONLY}/characters&#34; ];then
+#    tar zxvf &#34;${HERE}/characters.tar.gz&#34; -C &#34;${GAMUX_GAME_DATA_TMP}&#34;
+#  fi
+  return 10086
+}
+</code></pre><p>大佬写的注释挺详细的哈,我们应该向ta学习[笑]
+基本上就是定义了游戏名称&quot;GINKA&quot;,游戏所在文件夹&quot;game&quot;,以及&quot;game&quot;文件夹中的可执行文件&quot;run&quot;,其余的对于我们打包而言,意义不大(但是没有shell基础不要乱改哈)</p>
+<p>我们再来看看games</p>
+<pre tabindex="0"><code>#!/bin/bash
+
+source &#34;$(cd &#34;$(dirname &#34;$0&#34;)&#34;;pwd)/config&#34;
+
+&#34;${HERE}&#34;/game_run
+
+fusermount -u -z &#34;${GAMUX_GAME_DATA_TMP}&#34;
+rmdir &#34;${GAMUX_GAME_DATA_TMP}&#34;
+</code></pre><p>我们先来看看第一行#!/bin/bash
+这是设定一个解释器,这里是bash,你也可以设置为dash,sh,zsh等
+往下看,这是一个经典的当前路径获取代码,获取当前脚本文件的父目录，注意 $0 为脚本执行时传入的脚本路径名,翻译过来就是:打开并运行当前脚本文件父目录下的config脚本,这是配置了环境变量
+(关于${HERE},请查看config文件的 ###定义变量部分，无需修改### 部分)
+下面两行是挂载与垃圾清理,不重要(其实就是懒,毕竟已经23:01了)</p>
+<p>game_run文件,看名字就知道是干什么的了吧&hellip;&hellip;</p>
+<pre tabindex="0"><code>#!/bin/bash
+
+# figure out the absolute path to the script being run a bit
+# non-obvious, the ${0%/*} pulls the path out of $0, cd&#39;s into the
+# specified directory, then uses $PWD to figure out where that
+# directory lives - and all this in a subshell, so we don&#39;t affect
+# $PWD
+
+source &#34;$(cd &#34;$(dirname &#34;$0&#34;)&#34;;pwd)/config&#34;
+
+if [ ! -d &#34;${GAMUX_GAME_DATA}&#34; ];then
+  mkdir -p &#34;${GAMUX_GAME_DATA}&#34;
+fi
+
+if [ ! -d &#34;${GAMUX_GAME_DATA_TMP}&#34; ];then
+  mkdir &#34;${GAMUX_GAME_DATA_TMP}&#34;
+fi
+
+UNIONFS=&#34;unionfs_${PLATFORM}&#34;
+
+&#34;${HERE}&#34;/${UNIONFS} -o big_writes,umask=0002,direct_io,auto_cache,sync_read,nonempty,uid=$(id -u),gid=$(id -g),cow &#34;${GAMUX_GAME_DATA}&#34;=RW:&#34;${GAMUX_GAME_READONLY}&#34;=RO ${GAMUX_GAME_DATA_TMP}
+
+#自定义代码
+gamux_function1
+
+###############################################################################################
+
+#启动游戏
+cd &#34;${GAMUX_GAME_DATA_TMP}&#34;
+
+if [ ${GAMUX_STEAMRUNTIME} -eq 0 ];then 
+  &#34;${GAMUX_GAME_DATA_TMP}/${GAMUX_GAME_EXEC}&#34; &#34;$@&#34;
+else
+  &#34;${HERE}/steam-runtime/run.sh&#34; &#34;${GAMUX_GAME_DATA_TMP}/${GAMUX_GAME_EXEC}&#34; &#34;$@&#34;
+fi
+</code></pre><p>接下来就是我自己写的脚本了,位于game文件夹中的run脚本,</p>
+<pre tabindex="0"><code>#!/bin/sh
+
+export WINEHOME=$(pwd)
+export WINEPREFIX=$(pwd)/C
+#export WINEARCH=none
+export WINE=./bin/wine 
+$WINE game/run.exe
+export WINEDLLPATH=$(pwd)/lib/wine/i386-windows/:$(pwd)/lib/wine/x86_64-windows/
+</code></pre><p>非常简单的几句代码,分别设定了wine主目录的环境变量,wine c盘的环境变量,wine的架构(没有设定,为none),以及wine的可执行程序
+<img src="/images/9x.png" alt="9x.png">
+$WINE game/run.exe (用wine运行game目录下的run.exe)
+<img src="/images/3x.png" alt="3x.png">
+<img src="/images/8x.png" alt="8x.png"></p>
+<h3 id="打包">打包</h3>
+<p>打包之前要注意以下几点:
+1.在此之前先运行一下games文件,检查game/C 文件夹是否有以下文件,没有就失败了(可以运行,但喜提 -1GB空间,你可以理解为这是优化)
+<img src="/images/10x.png" alt="10x.png">
+2.一个game.png文件推荐256x256(不是也行)
+3.编辑desktop
+<img src="/images/5x.png" alt="5x.png">
+附赠desktop文件内容(以免损坏)</p>
+<pre tabindex="0"><code>[Desktop Entry]
+Name=GINKA
+Exec=games
+Icon=game
+Type=Application
+Categories=Game;
+Comment=
+Path=
+Terminal=false
+StartupNotify=false
+</code></pre><h2 id="开始打包">开始打包</h2>
+<p>准备好appimagetool.appimage,在此打开终端,输入</p>
+<pre tabindex="0"><code>ARCH=x86_64 ./appimagetool-x86_64.AppImage squashfs-root GINKA.Appimage
+</code></pre><p>解释:
+[ARCH=架构] [运行appimagetool] [参数1:所要打包的文件夹] [参数2:打包成什么]</p>
+<p><img src="/images/4x.png" alt="4x.png"></p>
+<p>出现以下场景就成功了
+<img src="/images/1x.png" alt="1x.png"></p>
+<p><em>作者的小声哔哔:写这个时候才21:20左右,现在是23:34了,现在脑子一团糟,文章后期也开始偷懒,有什么纰漏请见谅</em></p>
+
+    </div>
+    <div class="post-footer">
+        <div class="info">
+            
+            
+        </div>
+        
+
+
+    </div>
+    
+</div>
+
+                <div class="grow"></div>
+                <div class="built-with">
+    Built with <a href="https://gohugo.io/">Hugo</a> <b>·</b> Using the <a href="https://github.com/LucasVadilho/heyo-hugo-theme">heyo</a> theme
+</div>
+            </div>
+        </div>
+        
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha512-3M00D/rn8n+2ZVXBO9Hib0GKNpkm8MSUU/e2VNthDyBYxKWG+BftNYYcuEjXlyrSO637tidzMBXfE7sQm0INUg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<script type="text/javascript">
+            
+            
+            window.MathJax = {
+                tex: {
+                    inlineMath: [['$', '$'], ['\\(', '\\)']],
+                    displayMath: [['$$','$$'], ['\\[', '\\]']]
+                },
+                svg: {
+                    scale: 1.25,
+                }
+            };
+        </script><script defer type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.1.0/es5/tex-mml-svg.min.js" integrity="sha512-/mL9Gs6E5Bz6NtPOr9eY&#43;T8IIdJbo2JL3TudApzFFelwBXEc3TeFLU6kPq122TJROv7jkktuBRkz5h8vGzrsyA==" crossorigin="anonymous"></script>
+    </body>
+</html>

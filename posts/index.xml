@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Error:Eutopia</title>
-    <link>https://examnple.com/</link>
-    <description>Recent content on Error:Eutopia</description>
+    <title>Posts on Error:Eutopia</title>
+    <link>https://examnple.com/posts/</link>
+    <description>Recent content in Posts on Error:Eutopia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Error Eutopia</copyright>
     <lastBuildDate>Thu, 11 Jan 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://examnple.com/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://examnple.com/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Gal从ZERO到HERO的Renpy开发教程</title>
       <link>https://examnple.com/posts/gal/</link>

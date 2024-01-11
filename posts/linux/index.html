@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <title>Linux打包流程 For wine Appimage :: Error:Eutopia - Example site for hugo-theme-tailwind</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="首先,感谢一下linuxgame.cn提供的标准化打包工具 再感谢一下shinnku.com的Gal (笑) 请让我把工具准备好: 一个Linux发行版(WSL也可以),我选用的是KaliLinux Appimagetool(Github上有)
+以及来自linuxgame网站的打包工具 链接 {自带旧版本appimagetool以及wine依赖,但我们不需要}
+记得下好游戏并成功运行在本机wine环境上
+以及打包的灵魂:wine (可从archlinux包仓库或者debian包仓库获得) 这里我们演示的是&amp;hellip;&amp;hellip; GINKA ! 成品演示: 在开始之前,我觉得我得解释一下,Wine是什么 Wine （“Wine Is Not an Emulator” 的首字母缩写）是一个能够在多种 POSIX-compliant 操作系统（诸如 Linux，macOS 及 BSD 等）上运行 Windows 应用的兼容层。Wine 不是像虚拟机或者模拟器一样模仿内部的 Windows 逻辑，而是將 Windows API 调用翻译成为动态的 POSIX 调用，免除了性能和其他一些行为的内存占用，让你能够干净地集合 Windows 应用到你的桌面。
+Wine 项目由 Bob Amstadt 于 1993 年发起，旨在寻求一种在 Linux 上运行 Windows 3.1 程序的办法。不久之后，Alexandre Julliard 开始接手领导 Wine 的开发，从此由他管理这个项目。 多年以来，随着 Windows API 和应用为了适应新硬件及软件而不断演变，Wine 也一直不断发展来支持新的特性，移植到更多其他系统，并且更加稳定，提供着更好的用户体验。
+通过确立一个宏伟的目标，在 2008 年项目到达 v1.0 之前，Wine 一直稳健地持续了 15 年之久，那是第一个稳定版。 多个版本以后，虽然还有许多工作要做，但今天 Wine 仍然在活跃地开发着。 并且有大约数以百万人计的人们使用 Wine 在他们所选择的系统上运行 Windows 软件。 开放源代码和用户驱动的"
+/>
+<meta
+  name="keywords"
+  content="hugo, tailwind, tailwindcss, hugo theme, hugo theme tailwind"
+/>
+<meta name="robots" content="noodp" />
+<meta property="og:title" content="Linux打包流程 For wine Appimage" />
+<meta property="og:description" content="Linux打包流程 For wine Appimage" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://examnple.com/posts/linux/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-01-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-01-07T00:00:00+00:00" />
+
+
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Linux打包流程 For wine Appimage"/>
+<meta name="twitter:description" content="Linux打包流程 For wine Appimage"/>
+
+
+<link rel="canonical" href="https://examnple.com/posts/linux/" />
+
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="stylesheet" href="/css/index.min.00daf36bd5ee9fe1c553da346dd7a1d93bc97b5cf1fde7ddd1f4a5bd9b1901db.css">
+
+
+
+
+
+
+
+
+
+</head>
+<body class="w-full bg-slate-50 dark:bg-gray-800">
+  <header class="flex flex-none justify-center z-10">
+    <div class="flex flex-row gap justify-between w-full max-w-4xl lg:max-w-5xl h-12 mt-3">
+  <div class="flex-none ml-2 md:ml-0">
+    <a href="/" class="">
+      <img class="h-12 w-12 rounded-full object-cover bg-gray-100" src="/images/iw.jpg" alt="logo">
+    </a>
+  </div>
+  <div class="flex-1"></div>
+  <div class="flex-none">
+    
+
+
+
+<nav class="h-full static">
+  <button id="navbar-menu-toggle" type="button" class="inline-flex items-center p-2 text-sm text-slate-800 dark:text-slate-200 rounded-lg md:hidden" aria-controls="navbar-menu" aria-expanded="false">
+    <span class="sr-only">Open main menu</span>
+    <i class="w-8 h-8">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 6l16 0" />
+  <path d="M4 12l16 0" />
+  <path d="M4 18l16 0" />
+</svg>
+
+    </i>
+  </button>
+  <div class="absolute md:static top-16 left-0 right-0 z-50 hidden w-full md:block md:w-auto" id="navbar-menu">
+    <ul class="flex flex-col mx-2 md:mx-0 md:flex-row md:border-0 rounded-sm md:rounded-full px-3 text-base font-medium text-slate-800 dark:text-slate-200 shadow-lg bg-white dark:bg-gray-600 shadow-slate-800/5 dark:shadow-slate-200/5 ring-1 ring-slate-900/5 dark:ring-slate-100/5">
+    
+        <li id="about" class="">
+          <a class="block px-3 py-3 hover:text-emerald-600"
+            href="" title="About">About</a>
+        </li>
+      
+    
+        <li id="post" class="">
+          <a class="block px-3 py-3 hover:text-emerald-600 text-emerald-600"
+            href="/posts/" title="Post">Post</a>
+        </li>
+      
+    
+    </ul>
+  </div>
+</nav>
+
+
+  </div>
+  
+  <div class="flex-none mx-1"></div>
+  
+  <div class="darkmode-toggle flex flex-none mr-2 md:mr-0">
+    <label for="darkmode-toggle" class="flex items-center px-3 cursor-pointer rounded-full bg-gray-100 dark:bg-gray-600" title="Toggle dark mode">
+      <input name="darkmode-toggle" id="darkmode-toggle" type="checkbox" class="sr-only peer" aria-label="Toggle dark mode">
+      <div class="group flex flex-row gap-1 justify-center h-8 px-1 rounded-full bg-white dark:bg-gray-700">
+        <i class="h-6 w-6 flex-none rounded-full bg-yellow-400 place-self-center peer-checked:group-[]:invisible">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brightness-down" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
+   <path d="M12 5l0 .01"></path>
+   <path d="M17 7l0 .01"></path>
+   <path d="M19 12l0 .01"></path>
+   <path d="M17 17l0 .01"></path>
+   <path d="M12 19l0 .01"></path>
+   <path d="M7 17l0 .01"></path>
+   <path d="M5 12l0 .01"></path>
+   <path d="M7 7l0 .01"></path>
+</svg>
+
+        </i>
+        <i class="h-6 w-6 flex-none rounded-full place-self-center invisible peer-checked:group-[]:visible">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-moon-stars" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
+   <path d="M17 4a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2"></path>
+   <path d="M19 11h2m-1 -1v2"></path>
+</svg>
+
+        </i>
+      </div>
+    </label>
+  </div>
+</div>
+
+  </header>
+  <main class="flex flex-auto justify-center">
+    
+<div class="w-full max-w-4xl lg:max-w-5xl">
+  <div class="flex flex-col gap-y-3 p-6 mt-6 mx-2 md:mx-0 rounded-lg shadow-md bg-white dark:bg-gray-700">
+    <h1 class="text-4xl font-semibold text-slate-800 dark:text-slate-100">
+      <a href="/posts/linux/">Linux打包流程 For wine Appimage</a>
+    </h1>
+
+    
+    <h2 class="my-4 text-large text-slate-600 dark:text-slate-300">
+      Linux打包流程 For wine Appimage
+    </h2>
+    
+    
+
+
+    <div class="flex flex-col gap-y-1 md:flex-row md:gap-y-0 md:gap-x-4 text-slate-500 dark:text-slate-300">
+  
+  
+  <div class="flex flex-row text-base gap-x-1">
+    <i class="h-6 w-6 flex-none">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z"></path>
+   <path d="M16 3v4"></path>
+   <path d="M8 3v4"></path>
+   <path d="M4 11h16"></path>
+   <path d="M11 15h1"></path>
+   <path d="M12 15v3"></path>
+</svg>
+
+    </i>
+    <time datetime="2024-01-07T00:00:00&#43;00:00">
+      2024-01-07
+    </time>
+  </div>
+
+  <div class="flex flex-row text-base gap-x-1">
+    <i class="h-6 w-6 flex-none">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hourglass-high" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <path d="M6.5 7h11"></path>
+   <path d="M6 20v-2a6 6 0 1 1 12 0v2a1 1 0 0 1 -1 1h-10a1 1 0 0 1 -1 -1z"></path>
+   <path d="M6 4v2a6 6 0 1 0 12 0v-2a1 1 0 0 0 -1 -1h-10a1 1 0 0 0 -1 1z"></path>
+</svg>
+
+    </i>
+    <span>
+      2 minutes to read
+    </span>
+  </div>
+</div>
+
+
+    
+      
+      <section class="prose prose-slate dark:prose-invert w-full max-w-4xl lg:max-w-5xl mt-6">
+        <h2>Table of Contents</h2>
+        <aside><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+        <li><a href="#打包">打包</a></li>
+      </ul>
+    </li>
+    <li><a href="#开始打包">开始打包</a></li>
+  </ul>
+</nav></aside>
+      </section>
+      
+    
+
+    <article class="mt-6 w-full max-w-4xl lg:max-w-5xl prose prose-slate dark:prose-invert prose-quoteless post-content">
+      <h5 id="首先感谢一下linuxgamecn提供的标准化打包工具">首先,感谢一下linuxgame.cn提供的标准化打包工具</h5>
+<h5 id="再感谢一下shinnkucom的gal">再感谢一下shinnku.com的Gal</h5>
+<p>(笑)
+请让我把工具准备好:
+一个Linux发行版(WSL也可以),我选用的是KaliLinux
+Appimagetool(Github上有)</p>
+<p>以及来自linuxgame网站的打包工具 <a href="https://github.com/Gamuxorg/prebuilt-game-package-tool" target="_blank" rel="noopener">链接</a>
+{自带旧版本appimagetool以及wine依赖,但我们不需要}</p>
+<p>记得下好游戏并成功运行在本机wine环境上</p>
+<p>以及打包的灵魂:wine (可从archlinux包仓库或者debian包仓库获得)
+<div class="not-prose">
+<figure>
+    <img src="/images/6x.png"
+      alt="6x.png" 
+      loading="lazy"
+    >
+  </figure></div>
+
+这里我们演示的是&hellip;&hellip; GINKA !
+<div class="not-prose">
+<figure>
+    <img src="/images/0x.png"
+      alt="0x.png" 
+      loading="lazy"
+    >
+  </figure></div>
+
+成品演示:
+<div class="not-prose">
+<figure>
+    <img src="/images/7x.png"
+      alt="7x.png" 
+      loading="lazy"
+    >
+  </figure></div>
+</p>
+<h5 id="在开始之前我觉得我得解释一下wine是什么">在开始之前,我觉得我得解释一下,Wine是什么</h5>
+<p>Wine （“<em>Wine Is Not an Emulator</em>” 的首字母缩写）是一个能够在多种 POSIX-compliant 操作系统（诸如 Linux，macOS 及 BSD 等）上运行 Windows 应用的兼容层。Wine 不是像虚拟机或者模拟器一样模仿内部的 Windows 逻辑，而是將 Windows API 调用翻译成为动态的 POSIX 调用，免除了性能和其他一些行为的内存占用，让你能够干净地集合 Windows 应用到你的桌面。</p>
+<p>Wine 项目由 Bob Amstadt 于 1993 年发起，旨在寻求一种在 Linux 上运行 Windows 3.1 程序的办法。不久之后，Alexandre Julliard 开始接手领导 Wine 的开发，从此由他管理这个项目。 多年以来，随着 Windows API 和应用为了适应新硬件及软件而不断演变，Wine 也一直不断发展来支持新的特性，移植到更多其他系统，并且更加稳定，提供着更好的用户体验。</p>
+<p>通过确立一个宏伟的目标，在 2008 年项目到达 v1.0 之前，Wine 一直稳健地持续了 15 年之久，那是第一个稳定版。 多个版本以后，虽然还有许多工作要做，但今天 Wine 仍然在活跃地开发着。 并且有大约数以百万人计的人们使用 Wine 在他们所选择的系统上运行 Windows 软件。
+开放源代码和用户驱动的</p>
+<p>Wine 将会永远是自由软件。 大约一半的 Wine 代码由志愿者编写，其余部分由商业公司赞助。特别是 CodeWeavers，出售着一个 Wine 的支持版本。</p>
+<p>Wine 也是高度依赖用户社区的。用户自愿贡献时间在我们的 Application Database 上分享技巧和他们程序的运行测试结果，在我们的 Bug-Tracker 上撰写 bug 报告提醒开发者问题所在，或者在论坛上回复问题。
+(来自wine官网 <a href="https://www.winehq.org/" target="_blank" rel="noopener">链接</a>
+)
+(注:无论是最近苹果的游戏打包工具还是安卓的win模拟器,本质上都是wine哦~)</p>
+<h5 id="关于appimage">关于APPIMAGE</h5>
+<p>简单.</p>
+<p>AppImage的核心思想是一个应用程序 = 一个文件 。每个AppImage都包含应用程序以及应用程序运行所需的所有文件。换句话说，除了操作系统本身的基础组件，Appimage不需要依赖包即可运行。</p>
+<p>可靠.</p>
+<p>AppImage 格式是上游应用打包的理想选择，这意味着你可以直接从开发者那里获取软件，而不需要任何中间步骤，这完全符合开发者意图。非常迅速。</p>
+<p>快速.</p>
+<p>AppImage应用可以直接下载并且运行，无需安装，并且不需要root权限。
+(来自appimage官网<a href="https://appimage.org/" target="_blank" rel="noopener">链接</a>
+)</p>
+<h5 id="打包流程">打包流程</h5>
+<p>事实上没什么可以讲的,请看图:
+<div class="not-prose">
+<figure>
+    <img src="/images/2x.png"
+      alt="2x.png" 
+      loading="lazy"
+    >
+  </figure></div>
+
+<div class="not-prose">
+<figure>
+    <img src="/images/11x.png"
+      alt="11x.png" 
+      loading="lazy"
+    >
+  </figure></div>
+
+这个是软件入口,gamux将它指向了文件&quot;$(pwd)/usr/bin/games&quot;(好像还有一种是指向.desktop桌面文件的)</p>
+<h5 id="我们再来看看脚本内容">我们再来看看脚本内容</h5>
+<p>首先是config,这是一个配置文件</p>
+<pre tabindex="0"><code>#!/bin/bash
+
+###设置，根据需要修改###
+#游戏名称,可以随意起，请务必使用英文，游戏名切勿包含空格及其他符号
+GAMUX_GAME_NAME=&#34;GINKA&#34;
+
+#游戏所在文件夹的名称，默认为game
+GAMUX_GAME_BIN_DIR=&#34;game&#34;
+
+#game文件夹中游戏执行文件
+GAMUX_GAME_EXEC=&#34;run&#34;
+
+#是否启用steam-runtime，0为不启用，1为启用。若不启用，可以删除当前目录的steam-runtime节省游戏体积
+#非x86游戏不支持steam-runtime
+GAMUX_STEAMRUNTIME=0
+
+#x86平台只支持在64位系统运行，不论游戏是32或64位
+#arm平台只支持在arm64系统运行，不论armel、armhf或arm64的游戏
+PLATFORM=amd64
+
+###定义变量部分，无需修改###
+HERE=$(cd &#34;$(dirname &#34;$0&#34;)&#34;;pwd)
+cd &#34;${HERE}&#34;
+
+GAMUX_GAME_READONLY=&#34;${HERE}/${GAMUX_GAME_BIN_DIR}&#34;
+GAMUX_GAME_DIR=&#34;${HOME}/.local/share/gamux/${GAMUX_GAME_NAME}&#34;
+GAMUX_GAME_DATA=&#34;${GAMUX_GAME_DIR}/data&#34;
+GAMUX_GAME_DATA_TMP=&#34;${GAMUX_GAME_DIR}/${GAMUX_GAME_NAME}_gamux_mountdir&#34;
+
+###自定义部分，补充默认脚本的不足###
+function gamux_function1() {
+#  if [ ! -d &#34;${GAMUX_GAME_READONLY}/characters&#34; ];then
+#    tar zxvf &#34;${HERE}/characters.tar.gz&#34; -C &#34;${GAMUX_GAME_DATA_TMP}&#34;
+#  fi
+  return 10086
+}
+</code></pre><p>大佬写的注释挺详细的哈,我们应该向ta学习[笑]
+基本上就是定义了游戏名称&quot;GINKA&quot;,游戏所在文件夹&quot;game&quot;,以及&quot;game&quot;文件夹中的可执行文件&quot;run&quot;,其余的对于我们打包而言,意义不大(但是没有shell基础不要乱改哈)</p>
+<p>我们再来看看games</p>
+<pre tabindex="0"><code>#!/bin/bash
+
+source &#34;$(cd &#34;$(dirname &#34;$0&#34;)&#34;;pwd)/config&#34;
+
+&#34;${HERE}&#34;/game_run
+
+fusermount -u -z &#34;${GAMUX_GAME_DATA_TMP}&#34;
+rmdir &#34;${GAMUX_GAME_DATA_TMP}&#34;
+</code></pre><p>我们先来看看第一行#!/bin/bash
+这是设定一个解释器,这里是bash,你也可以设置为dash,sh,zsh等
+往下看,这是一个经典的当前路径获取代码,获取当前脚本文件的父目录，注意 $0 为脚本执行时传入的脚本路径名,翻译过来就是:打开并运行当前脚本文件父目录下的config脚本,这是配置了环境变量
+(关于${HERE},请查看config文件的 ###定义变量部分，无需修改### 部分)
+下面两行是挂载与垃圾清理,不重要(其实就是懒,毕竟已经23:01了)</p>
+<p>game_run文件,看名字就知道是干什么的了吧&hellip;&hellip;</p>
+<pre tabindex="0"><code>#!/bin/bash
+
+# figure out the absolute path to the script being run a bit
+# non-obvious, the ${0%/*} pulls the path out of $0, cd&#39;s into the
+# specified directory, then uses $PWD to figure out where that
+# directory lives - and all this in a subshell, so we don&#39;t affect
+# $PWD
+
+source &#34;$(cd &#34;$(dirname &#34;$0&#34;)&#34;;pwd)/config&#34;
+
+if [ ! -d &#34;${GAMUX_GAME_DATA}&#34; ];then
+  mkdir -p &#34;${GAMUX_GAME_DATA}&#34;
+fi
+
+if [ ! -d &#34;${GAMUX_GAME_DATA_TMP}&#34; ];then
+  mkdir &#34;${GAMUX_GAME_DATA_TMP}&#34;
+fi
+
+UNIONFS=&#34;unionfs_${PLATFORM}&#34;
+
+&#34;${HERE}&#34;/${UNIONFS} -o big_writes,umask=0002,direct_io,auto_cache,sync_read,nonempty,uid=$(id -u),gid=$(id -g),cow &#34;${GAMUX_GAME_DATA}&#34;=RW:&#34;${GAMUX_GAME_READONLY}&#34;=RO ${GAMUX_GAME_DATA_TMP}
+
+#自定义代码
+gamux_function1
+
+###############################################################################################
+
+#启动游戏
+cd &#34;${GAMUX_GAME_DATA_TMP}&#34;
+
+if [ ${GAMUX_STEAMRUNTIME} -eq 0 ];then 
+  &#34;${GAMUX_GAME_DATA_TMP}/${GAMUX_GAME_EXEC}&#34; &#34;$@&#34;
+else
+  &#34;${HERE}/steam-runtime/run.sh&#34; &#34;${GAMUX_GAME_DATA_TMP}/${GAMUX_GAME_EXEC}&#34; &#34;$@&#34;
+fi
+</code></pre><p>接下来就是我自己写的脚本了,位于game文件夹中的run脚本,</p>
+<pre tabindex="0"><code>#!/bin/sh
+
+export WINEHOME=$(pwd)
+export WINEPREFIX=$(pwd)/C
+#export WINEARCH=none
+export WINE=./bin/wine 
+$WINE game/run.exe
+export WINEDLLPATH=$(pwd)/lib/wine/i386-windows/:$(pwd)/lib/wine/x86_64-windows/
+</code></pre><p>非常简单的几句代码,分别设定了wine主目录的环境变量,wine c盘的环境变量,wine的架构(没有设定,为none),以及wine的可执行程序
+<div class="not-prose">
+<figure>
+    <img src="/images/9x.png"
+      alt="9x.png" 
+      loading="lazy"
+    >
+  </figure></div>
+
+$WINE game/run.exe (用wine运行game目录下的run.exe)
+<div class="not-prose">
+<figure>
+    <img src="/images/3x.png"
+      alt="3x.png" 
+      loading="lazy"
+    >
+  </figure></div>
+
+<div class="not-prose">
+<figure>
+    <img src="/images/8x.png"
+      alt="8x.png" 
+      loading="lazy"
+    >
+  </figure></div>
+</p>
+<h3 id="打包">打包</h3>
+<p>打包之前要注意以下几点:
+1.在此之前先运行一下games文件,检查game/C 文件夹是否有以下文件,没有就失败了(可以运行,但喜提 -1GB空间,你可以理解为这是优化)
+<div class="not-prose">
+<figure>
+    <img src="/images/10x.png"
+      alt="10x.png" 
+      loading="lazy"
+    >
+  </figure></div>
+
+2.一个game.png文件推荐256x256(不是也行)
+3.编辑desktop
+<div class="not-prose">
+<figure>
+    <img src="/images/5x.png"
+      alt="5x.png" 
+      loading="lazy"
+    >
+  </figure></div>
+
+附赠desktop文件内容(以免损坏)</p>
+<pre tabindex="0"><code>[Desktop Entry]
+Name=GINKA
+Exec=games
+Icon=game
+Type=Application
+Categories=Game;
+Comment=
+Path=
+Terminal=false
+StartupNotify=false
+</code></pre><h2 id="开始打包">开始打包</h2>
+<p>准备好appimagetool.appimage,在此打开终端,输入</p>
+<pre tabindex="0"><code>ARCH=x86_64 ./appimagetool-x86_64.AppImage squashfs-root GINKA.Appimage
+</code></pre><p>解释:
+[ARCH=架构] [运行appimagetool] [参数1:所要打包的文件夹] [参数2:打包成什么]</p>
+<p><div class="not-prose">
+<figure>
+    <img src="/images/4x.png"
+      alt="4x.png" 
+      loading="lazy"
+    >
+  </figure></div>
+</p>
+<p>出现以下场景就成功了
+<div class="not-prose">
+<figure>
+    <img src="/images/1x.png"
+      alt="1x.png" 
+      loading="lazy"
+    >
+  </figure></div>
+</p>
+<p><em>作者的小声哔哔:写这个时候才21:20左右,现在是23:34了,现在脑子一团糟,文章后期也开始偷懒,有什么纰漏请见谅</em></p>
+
+    </article>
+
+    
+
+
+
+  </div>
+</div>
+
+  </main>
+  <footer class="flex flex-none justify-center">
+    <section class="flex flex-col md:flex-row mx-2 md:mx-0 gap-2 md:gap-0 justify-between w-full max-w-4xl lg:max-w-5xl py-6 text-slate-500 dark:text-slate-300">
+  <div class="flex flex-row">
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+  </div>
+  <div class="grow"></div>
+  <div class="flex flex-row">
+    <i class="h-6 w-6 flex-none"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+   <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
+   <path d="M14 9.75a3.016 3.016 0 0 0 -4.163 .173a2.993 2.993 0 0 0 0 4.154a3.016 3.016 0 0 0 4.163 .173"></path>
+</svg>
+</i> 2023 - 2024 Error Eutopia
+    
+  </div>
+  
+  <div class="flex flex-row">
+    <span class="ml-0 pl-0 md:ml-2 md:pl-2 border-l-0 md:border-l border-slate-300 dark:border-slate-400">
+      Powered by <a href="https://gohugo.io" target="_blank" rel="noopener" class="underline">Hugo</a> <span class="text-red-600">&hearts;</span> <a href="https://github.com/tomowang/hugo-theme-tailwind" target="_blank" rel="noopener" class="underline">Tailwind</a>
+    </span>
+  </div>
+  
+</section>
+
+  </footer><script src="/main.min.c6372b6836971865bd94bfde974748aca8415824a2facab6ccd66a87384bfacb.js"></script>
+  
+  <div class="hidden top-1 right-1" id="code-copy">
+    <i class="h-6 w-6 block">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copy" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" />
+  <path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" />
+</svg>
+
+    </i>
+  </div>
+  <div class="hidden top-1 right-1" id="code-copy-done">
+    <i class="h-6 w-6 block">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-check" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M5 12l5 5l10 -10" />
+</svg>
+
+    </i>
+  </div><script src="/code-copy.min.4be95a7068ec721962fd0df64ce1c8673df8035fde465874f1e6e67e2aac7f71.js"></script>
+  
+
+</body>
+</html>

@@ -38,13 +38,6 @@
       <description>首先,感谢一下linuxgame.cn提供的标准化打包工具 再感谢一下shinnku.com的Gal (笑) 请让我把工具准备好: 一个Linux发行版(WSL也可以),我选用的是KaliLinux Appimagetool(Github上有)&#xA;以及来自linuxgame网站的打包工具 链接 {自带旧版本appimagetool以及wine依赖,但我们不需要}&#xA;记得下好游戏并成功运行在本机wine环境上&#xA;以及打包的灵魂:wine (可从archlinux包仓库或者debian包仓库获得) 这里我们演示的是&amp;hellip;&amp;hellip; GINKA ! 成品演示: 在开始之前,我觉得我得解释一下,Wine是什么 Wine （“Wine Is Not an Emulator” 的首字母缩写）是一个能够在多种 POSIX-compliant 操作系统（诸如 Linux，macOS 及 BSD 等）上运行 Windows 应用的兼容层。Wine 不是像虚拟机或者模拟器一样模仿内部的 Windows 逻辑，而是將 Windows API 调用翻译成为动态的 POSIX 调用，免除了性能和其他一些行为的内存占用，让你能够干净地集合 Windows 应用到你的桌面。&#xA;Wine 项目由 Bob Amstadt 于 1993 年发起，旨在寻求一种在 Linux 上运行 Windows 3.1 程序的办法。不久之后，Alexandre Julliard 开始接手领导 Wine 的开发，从此由他管理这个项目。 多年以来，随着 Windows API 和应用为了适应新硬件及软件而不断演变，Wine 也一直不断发展来支持新的特性，移植到更多其他系统，并且更加稳定，提供着更好的用户体验。&#xA;通过确立一个宏伟的目标，在 2008 年项目到达 v1.0 之前，Wine 一直稳健地持续了 15 年之久，那是第一个稳定版。 多个版本以后，虽然还有许多工作要做，但今天 Wine 仍然在活跃地开发着。 并且有大约数以百万人计的人们使用 Wine 在他们所选择的系统上运行 Windows 软件。 开放源代码和用户驱动的</description>
     </item>
     <item>
-      <title>系统环境分享</title>
-      <link>https://examnple.com/posts/%E5%88%86%E4%BA%AB/</link>
-      <pubDate>Sat, 06 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>https://examnple.com/posts/%E5%88%86%E4%BA%AB/</guid>
-      <description> 分享 </description>
-    </item>
-    <item>
       <title>测试</title>
       <link>https://examnple.com/posts/%E6%B5%8B%E8%AF%95/</link>
       <pubDate>Sun, 31 Dec 2023 00:00:00 +0000</pubDate>

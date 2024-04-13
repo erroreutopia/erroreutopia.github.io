@@ -1,384 +1,436 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<head>
-  <title>Gal从ZERO到HERO的Renpy开发教程 :: Error:Eutopia - Example site for hugo-theme-tailwind</title>
-  
-  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta
-  name="description"
-  content="人物对话与图像 首先下载好renpy引擎及其资源如果没有点此链接: ren-py资源 打开引擎后就是这个样子: 分支头:看的懂英语可以跳过此处 首先点击右下角的preferences 再点击中文(或者任意你喜欢的语言),后期教程以中文界面为主 分支尾:看的懂英语可以跳过此处 项目的创建 让我们返回到主菜单,点击&amp;quot;创建新项目&amp;quot; 点击&amp;quot;继续&amp;quot; 输入项目名称,我们这里叫:&amp;ldquo;Eutopia RenPy Journey&amp;rdquo;(名称不可以输入不再ASCII内的字符,关于ASCII,有兴趣自行搜索) 点击继续,以及后面两个都保持为默认,点击继续 稍等片刻后我们会返回到主菜单 箭头所指的便是我们新建的项目 让我们启动项目试试看 右下角是我们的游戏名称,左边是我们的游戏菜单(虽然现在很丑,但后面会美化的) 点击开始游戏试试看 点击两次后便会返回游戏主界面 Tips:接下来需要写代码了,请各位阁下做好心理准备! Ok,相信大家都做好了准备,接下来就是愉快的代码编写时间!
-先回到主界面,看到右上角一个名为script.rpy的脚本文件吗？ 点击它,就可以跳转到&amp;hellip;&amp;hellip;什么?你没跳转?那就跟着下面图片去配置吧!
-分支头2,可以跳转的跳过 自行选择一个你喜欢的编辑器吧!
-分支尾2,可以跳转的跳过 这是文件中的代码:
-# 游戏的脚本可置于此文件中。 # 声明此游戏使用的角色。颜色参数可使角色姓名着色。 define e = Character(&amp;#34;艾琳&amp;#34;) # 游戏在此开始。 label start: # 显示一个背景。此处默认显示占位图，但您也可以在图片目录添加一个文件 # （命名为 bg room.png 或 bg room.jpg）来显示。 scene bg room # 显示角色立绘。此处使用了占位图，但您也可以在图片目录添加命名为 # eileen happy.png 的文件来将其替换掉。 show eileen happy # 此处显示各行对话。 e &amp;#34;您已创建一个新的 Ren&amp;#39;Py 游戏。&amp;#34; e &amp;#34;当您完善了故事、图片和音乐之后，您就可以向全世界发布了！&amp;#34; # 此处为游戏结尾。 return 看上去复杂吗？其实就光凭这个注释就可以明白大半了 但是,我们还是一步一步来比较好"
-/>
-<meta
-  name="keywords"
-  content="hugo, tailwind, tailwindcss, hugo theme, hugo theme tailwind"
-/>
-<meta name="robots" content="noodp" />
-<meta property="og:title" content="Gal从ZERO到HERO的Renpy开发教程" />
-<meta property="og:description" content="Gal从ZERO到HERO的Renpy开发教程" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://examnple.com/posts/gal/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2024-01-11T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-01-11T00:00:00+00:00" />
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Gal从ZERO到HERO的Renpy开发教程">
+<title>Gal从ZERO到HERO的Renpy开发教程</title>
 
+<link rel='canonical' href='https://examnple.com/posts/gal/'>
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Gal从ZERO到HERO的Renpy开发教程"/>
-<meta name="twitter:description" content="Gal从ZERO到HERO的Renpy开发教程"/>
+<link rel="stylesheet" href="/scss/style.min.760e3dabc1e140d2e6abd27a8ca0aabb60e568829b29f67d2df12024136eff37.css"><meta property='og:title' content="Gal从ZERO到HERO的Renpy开发教程">
+<meta property='og:description' content="Gal从ZERO到HERO的Renpy开发教程">
+<meta property='og:url' content='https://examnple.com/posts/gal/'>
+<meta property='og:site_name' content='Error:Eutopia'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:published_time' content='2024-01-11T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2024-01-11T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Gal从ZERO到HERO的Renpy开发教程">
+<meta name="twitter:description" content="Gal从ZERO到HERO的Renpy开发教程">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
 
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
 
-<link rel="canonical" href="https://examnple.com/posts/gal/" />
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
 
-<link rel="shortcut icon" href="/favicon.ico" />
-<link rel="stylesheet" href="/css/index.min.00daf36bd5ee9fe1c553da346dd7a1d93bc97b5cf1fde7ddd1f4a5bd9b1901db.css">
-
-
-
-
-
-
-
-
-
-</head>
-<body class="w-full bg-slate-50 dark:bg-gray-800">
-  <header class="flex flex-none justify-center z-10">
-    <div class="flex flex-row gap justify-between w-full max-w-4xl lg:max-w-5xl h-12 mt-3">
-  <div class="flex-none ml-2 md:ml-0">
-    <a href="/" class="">
-      <img class="h-12 w-12 rounded-full object-cover bg-gray-100" src="/images/iw.jpg" alt="logo">
-    </a>
-  </div>
-  <div class="flex-1"></div>
-  <div class="flex-none">
-    
-
-
-
-<nav class="h-full static">
-  <button id="navbar-menu-toggle" type="button" class="inline-flex items-center p-2 text-sm text-slate-800 dark:text-slate-200 rounded-lg md:hidden" aria-controls="navbar-menu" aria-expanded="false">
-    <span class="sr-only">Open main menu</span>
-    <i class="w-8 h-8">
-      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-  <path d="M4 6l16 0" />
-  <path d="M4 12l16 0" />
-  <path d="M4 18l16 0" />
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huf78f17e69ad6f0d4cf4a37f2f27b3419_1474194_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Error:Eutopia</a></h1>
+            <h2 class="site-description"></h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
 </svg>
 
-    </i>
-  </button>
-  <div class="absolute md:static top-16 left-0 right-0 z-50 hidden w-full md:block md:w-auto" id="navbar-menu">
-    <ul class="flex flex-col mx-2 md:mx-0 md:flex-row md:border-0 rounded-sm md:rounded-full px-3 text-base font-medium text-slate-800 dark:text-slate-200 shadow-lg bg-white dark:bg-gray-600 shadow-slate-800/5 dark:shadow-slate-200/5 ring-1 ring-slate-900/5 dark:ring-slate-100/5">
-    
-        <li id="about" class="">
-          <a class="block px-3 py-3 hover:text-emerald-600"
-            href="" title="About">About</a>
+
+
+                
+                <span>Search</span>
+            </a>
         </li>
-      
-    
-        <li id="post" class="">
-          <a class="block px-3 py-3 hover:text-emerald-600 text-emerald-600"
-            href="/posts/" title="Post">Post</a>
+        
+        
+        <li  class='current' >
+            <a href='/posts/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Post</span>
+            </a>
         </li>
-      
+        
+        
+        <li >
+            <a href='' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archive/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archive</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
     
-    </ul>
-  </div>
-</nav>
 
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
 
-  </div>
-  
-  <div class="flex-none mx-1"></div>
-  
-  <div class="darkmode-toggle flex flex-none mr-2 md:mr-0">
-    <label for="darkmode-toggle" class="flex items-center px-3 cursor-pointer rounded-full bg-gray-100 dark:bg-gray-600" title="Toggle dark mode">
-      <input name="darkmode-toggle" id="darkmode-toggle" type="checkbox" class="sr-only peer" aria-label="Toggle dark mode">
-      <div class="group flex flex-row gap-1 justify-center h-8 px-1 rounded-full bg-white dark:bg-gray-700">
-        <i class="h-6 w-6 flex-none rounded-full bg-yellow-400 place-self-center peer-checked:group-[]:invisible">
-          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brightness-down" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-   <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
-   <path d="M12 5l0 .01"></path>
-   <path d="M17 7l0 .01"></path>
-   <path d="M19 12l0 .01"></path>
-   <path d="M17 17l0 .01"></path>
-   <path d="M12 19l0 .01"></path>
-   <path d="M7 17l0 .01"></path>
-   <path d="M5 12l0 .01"></path>
-   <path d="M7 7l0 .01"></path>
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/gal/">Gal从ZERO到HERO的Renpy开发教程</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Gal从ZERO到HERO的Renpy开发教程
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Jan 11, 2024</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
 </svg>
 
-        </i>
-        <i class="h-6 w-6 flex-none rounded-full place-self-center invisible peer-checked:group-[]:visible">
-          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-moon-stars" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-   <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
-   <path d="M17 4a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2"></path>
-   <path d="M19 11h2m-1 -1v2"></path>
-</svg>
 
-        </i>
-      </div>
-    </label>
-  </div>
+
+                <time class="article-time--reading">
+                    1 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
 </div>
 
-  </header>
-  <main class="flex flex-auto justify-center">
-    
-<div class="w-full max-w-4xl lg:max-w-5xl">
-  <div class="flex flex-col gap-y-3 p-6 mt-6 mx-2 md:mx-0 rounded-lg shadow-md bg-white dark:bg-gray-700">
-    <h1 class="text-4xl font-semibold text-slate-800 dark:text-slate-100">
-      <a href="/posts/gal/">Gal从ZERO到HERO的Renpy开发教程</a>
-    </h1>
+</header>
 
-    
-    <h2 class="my-4 text-large text-slate-600 dark:text-slate-300">
-      Gal从ZERO到HERO的Renpy开发教程
-    </h2>
+    <section class="article-content">
     
     
-
-
-    <div class="flex flex-col gap-y-1 md:flex-row md:gap-y-0 md:gap-x-4 text-slate-500 dark:text-slate-300">
-  
-  
-  <div class="flex flex-row text-base gap-x-1">
-    <i class="h-6 w-6 flex-none">
-      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-   <path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z"></path>
-   <path d="M16 3v4"></path>
-   <path d="M8 3v4"></path>
-   <path d="M4 11h16"></path>
-   <path d="M11 15h1"></path>
-   <path d="M12 15v3"></path>
-</svg>
-
-    </i>
-    <time datetime="2024-01-11T00:00:00&#43;00:00">
-      2024-01-11
-    </time>
-  </div>
-
-  <div class="flex flex-row text-base gap-x-1">
-    <i class="h-6 w-6 flex-none">
-      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hourglass-high" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-   <path d="M6.5 7h11"></path>
-   <path d="M6 20v-2a6 6 0 1 1 12 0v2a1 1 0 0 1 -1 1h-10a1 1 0 0 1 -1 -1z"></path>
-   <path d="M6 4v2a6 6 0 1 0 12 0v-2a1 1 0 0 0 -1 -1h-10a1 1 0 0 0 -1 1z"></path>
-</svg>
-
-    </i>
-    <span>
-      One minute to read
-    </span>
-  </div>
-</div>
-
-
-    
-      
-      <section class="prose prose-slate dark:prose-invert w-full max-w-4xl lg:max-w-5xl mt-6">
-        <h2>Table of Contents</h2>
-        <aside><nav id="TableOfContents">
-  <ul>
-    <li><a href="#分支头看的懂英语可以跳过此处"><em>分支头:看的懂英语可以跳过此处</em></a></li>
-    <li><a href="#分支尾看的懂英语可以跳过此处"><em>分支尾:看的懂英语可以跳过此处</em></a></li>
-    <li><a href="#项目的创建">项目的创建</a>
-      <ul>
-        <li></li>
-        <li><a href="#分支头2可以跳转的跳过">分支头2,可以跳转的跳过</a></li>
-        <li><a href="#分支尾2可以跳转的跳过">分支尾2,可以跳转的跳过</a></li>
-        <li><a href="#首先一个普通的gal需要角色">首先,一个普通的gal需要角色</a></li>
-        <li><a href="#代码实践">代码实践</a></li>
-        <li><a href="#图像的基本运用">图像的基本运用</a></li>
-        <li><a href="#eutopia换装ing">eutopia换装ing&hellip;</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav></aside>
-      </section>
-      
-    
-
-    <article class="mt-6 w-full max-w-4xl lg:max-w-5xl prose prose-slate dark:prose-invert prose-quoteless post-content">
-      <h1 id="人物对话与图像">人物对话与图像</h1>
-<p>首先下载好renpy引擎及其资源如果没有点此链接: <a href="https://galgame.dev/topic/267/ren-py%e8%b5%84%e6%ba%90" target="_blank" rel="noopener">ren-py资源</a>
-
+    <h1 id="人物对话与图像">
+    <a href="#%e4%ba%ba%e7%89%a9%e5%af%b9%e8%af%9d%e4%b8%8e%e5%9b%be%e5%83%8f" class="header-anchor">#</a>
+    人物对话与图像
+</h1><p>首先下载好renpy引擎及其资源如果没有点此链接: <a class="link" href="https://galgame.dev/topic/267/ren-py%e8%b5%84%e6%ba%90"  target="_blank" rel="noopener"
+    >ren-py资源</a>
 打开引擎后就是这个样子:
-<div class="not-prose">
-<figure>
-    <img src="https://galgame.dev/assets/uploads/files/1704785784447-f7464c66-fa3e-434c-87c3-316b86078add-%e5%9b%be%e7%89%87.png"
-      alt="" 
-      loading="lazy"
-    >
-  </figure></div>
-</p>
-<h2 id="分支头看的懂英语可以跳过此处"><em>分支头:看的懂英语可以跳过此处</em></h2>
-<p>首先点击右下角的preferences
-<div class="not-prose">
-<figure>
-    <img src="https://galgame.dev/assets/uploads/files/1704784399573-6ce61000-3170-480d-9597-882fb9940987-%e5%9b%be%e7%89%87.png"
-      alt="" 
-      loading="lazy"
-    >
-  </figure></div>
-
+<img src="https://galgame.dev/assets/uploads/files/1704785784447-f7464c66-fa3e-434c-87c3-316b86078add-%e5%9b%be%e7%89%87.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<h2 id="分支头看的懂英语可以跳过此处">
+    <a href="#%e5%88%86%e6%94%af%e5%a4%b4%e7%9c%8b%e7%9a%84%e6%87%82%e8%8b%b1%e8%af%ad%e5%8f%af%e4%bb%a5%e8%b7%b3%e8%bf%87%e6%ad%a4%e5%a4%84" class="header-anchor">#</a>
+    <em>分支头:看的懂英语可以跳过此处</em>
+</h2><p>首先点击右下角的preferences
+<img src="https://galgame.dev/assets/uploads/files/1704784399573-6ce61000-3170-480d-9597-882fb9940987-%e5%9b%be%e7%89%87.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
 再点击中文(或者任意你喜欢的语言),后期教程以中文界面为主
-<div class="not-prose">
-<figure>
-    <img src="https://galgame.dev/assets/uploads/files/1704784433132-dd5f90db-64d4-4052-9ea5-859f7f0d59c6-%e5%9b%be%e7%89%87.png"
-      alt="" 
-      loading="lazy"
-    >
-  </figure></div>
-</p>
-<h2 id="分支尾看的懂英语可以跳过此处"><em>分支尾:看的懂英语可以跳过此处</em></h2>
-<h2 id="项目的创建">项目的创建</h2>
-<p>让我们返回到主菜单,点击&quot;创建新项目&quot;
-<div class="not-prose">
-<figure>
-    <img src="https://galgame.dev/assets/uploads/files/1704784475550-87bcf604-84e8-4da2-be98-6314df947203-%e5%9b%be%e7%89%87.png"
-      alt="" 
-      loading="lazy"
-    >
-  </figure></div>
-
+<img src="https://galgame.dev/assets/uploads/files/1704784433132-dd5f90db-64d4-4052-9ea5-859f7f0d59c6-%e5%9b%be%e7%89%87.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<h2 id="分支尾看的懂英语可以跳过此处">
+    <a href="#%e5%88%86%e6%94%af%e5%b0%be%e7%9c%8b%e7%9a%84%e6%87%82%e8%8b%b1%e8%af%ad%e5%8f%af%e4%bb%a5%e8%b7%b3%e8%bf%87%e6%ad%a4%e5%a4%84" class="header-anchor">#</a>
+    <em>分支尾:看的懂英语可以跳过此处</em>
+</h2><h2 id="项目的创建">
+    <a href="#%e9%a1%b9%e7%9b%ae%e7%9a%84%e5%88%9b%e5%bb%ba" class="header-anchor">#</a>
+    项目的创建
+</h2><p>让我们返回到主菜单,点击&quot;创建新项目&quot;
+<img src="https://galgame.dev/assets/uploads/files/1704784475550-87bcf604-84e8-4da2-be98-6314df947203-%e5%9b%be%e7%89%87.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
 点击&quot;继续&quot;
-<div class="not-prose">
-<figure>
-    <img src="https://galgame.dev/assets/uploads/files/1704784509950-91ba47f7-f812-4b17-a8f6-02d7a1161c11-%e5%9b%be%e7%89%87.png"
-      alt="" 
-      loading="lazy"
-    >
-  </figure></div>
-
+<img src="https://galgame.dev/assets/uploads/files/1704784509950-91ba47f7-f812-4b17-a8f6-02d7a1161c11-%e5%9b%be%e7%89%87.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
 输入项目名称,我们这里叫:&ldquo;Eutopia RenPy Journey&rdquo;(名称不可以输入不再ASCII内的字符,关于ASCII,有兴趣自行搜索)
-<div class="not-prose">
-<figure>
-    <img src="https://galgame.dev/assets/uploads/files/1704784606048-4fa1cefb-2777-4f34-bb2d-9c2cdc705ffe-%e5%9b%be%e7%89%87.png"
-      alt="" 
-      loading="lazy"
-    >
-  </figure></div>
-
+<img src="https://galgame.dev/assets/uploads/files/1704784606048-4fa1cefb-2777-4f34-bb2d-9c2cdc705ffe-%e5%9b%be%e7%89%87.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
 点击继续,以及后面两个都保持为默认,点击继续
-<div class="not-prose">
-<figure>
-    <img src="https://galgame.dev/assets/uploads/files/1704784636340-b204dbed-338e-413e-83d7-10c3844f53f9-%e5%9b%be%e7%89%87.png"
-      alt="" 
-      loading="lazy"
-    >
-  </figure></div>
-
-<div class="not-prose">
-<figure>
-    <img src="https://galgame.dev/assets/uploads/files/1704784672040-e0122d99-a892-4ab2-86fe-ce28458c2e11-%e5%9b%be%e7%89%87.png"
-      alt="" 
-      loading="lazy"
-    >
-  </figure></div>
-
+<img src="https://galgame.dev/assets/uploads/files/1704784636340-b204dbed-338e-413e-83d7-10c3844f53f9-%e5%9b%be%e7%89%87.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
+<img src="https://galgame.dev/assets/uploads/files/1704784672040-e0122d99-a892-4ab2-86fe-ce28458c2e11-%e5%9b%be%e7%89%87.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
 稍等片刻后我们会返回到主菜单
-<div class="not-prose">
-<figure>
-    <img src="https://galgame.dev/assets/uploads/files/1704784690018-7dce1f2a-f931-4074-9628-b5ee4892f1da-%e5%9b%be%e7%89%87.png"
-      alt="" 
-      loading="lazy"
-    >
-  </figure></div>
-
+<img src="https://galgame.dev/assets/uploads/files/1704784690018-7dce1f2a-f931-4074-9628-b5ee4892f1da-%e5%9b%be%e7%89%87.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
 箭头所指的便是我们新建的项目
-<div class="not-prose">
-<figure>
-    <img src="https://galgame.dev/assets/uploads/files/1704784763005-2f3f2b9e-dc65-482e-86a2-617ae5ee5413-%e5%9b%be%e7%89%87.png"
-      alt="" 
-      loading="lazy"
-    >
-  </figure></div>
-
+<img src="https://galgame.dev/assets/uploads/files/1704784763005-2f3f2b9e-dc65-482e-86a2-617ae5ee5413-%e5%9b%be%e7%89%87.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
 让我们启动项目试试看
-<div class="not-prose">
-<figure>
-    <img src="https://galgame.dev/assets/uploads/files/1704784816752-f8247022-b2e2-4181-a2b5-b76b9699ec3a-%e5%9b%be%e7%89%87.png"
-      alt="" 
-      loading="lazy"
-    >
-  </figure></div>
-
+<img src="https://galgame.dev/assets/uploads/files/1704784816752-f8247022-b2e2-4181-a2b5-b76b9699ec3a-%e5%9b%be%e7%89%87.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
 右下角是我们的游戏名称,左边是我们的游戏菜单(虽然现在很丑,但后面会美化的)
-<div class="not-prose">
-<figure>
-    <img src="https://galgame.dev/assets/uploads/files/1704784877477-718b2bdf-7494-4e96-a79a-a379695e90e7-%e5%9b%be%e7%89%87.png"
-      alt="" 
-      loading="lazy"
-    >
-  </figure></div>
-
+<img src="https://galgame.dev/assets/uploads/files/1704784877477-718b2bdf-7494-4e96-a79a-a379695e90e7-%e5%9b%be%e7%89%87.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
 点击开始游戏试试看
-<div class="not-prose">
-<figure>
-    <img src="https://galgame.dev/assets/uploads/files/1704784911464-649493cf-29a9-4c99-b20f-ab703a10f83e-%e5%9b%be%e7%89%87.png"
-      alt="" 
-      loading="lazy"
-    >
-  </figure></div>
-
-<div class="not-prose">
-<figure>
-    <img src="https://galgame.dev/assets/uploads/files/1704784928533-d594e473-abd0-4e3d-baa3-43799018b225-%e5%9b%be%e7%89%87.png"
-      alt="" 
-      loading="lazy"
-    >
-  </figure></div>
-
+<img src="https://galgame.dev/assets/uploads/files/1704784911464-649493cf-29a9-4c99-b20f-ab703a10f83e-%e5%9b%be%e7%89%87.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
+<img src="https://galgame.dev/assets/uploads/files/1704784928533-d594e473-abd0-4e3d-baa3-43799018b225-%e5%9b%be%e7%89%87.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
 点击两次后便会返回游戏主界面
-<div class="not-prose">
-<figure>
-    <img src="https://galgame.dev/assets/uploads/files/1704784956515-84baa8e4-df58-45d4-8d95-d5237f3692cc-%e5%9b%be%e7%89%87.png"
-      alt="" 
-      loading="lazy"
-    >
-  </figure></div>
-</p>
-<h4 id="tips接下来需要写代码了请各位阁下做好心理准备"><em>Tips:接下来需要写代码了,请各位阁下做好心理准备!</em></h4>
-<p>Ok,相信大家都做好了准备,接下来就是愉快的代码编写时间!</p>
+<img src="https://galgame.dev/assets/uploads/files/1704784956515-84baa8e4-df58-45d4-8d95-d5237f3692cc-%e5%9b%be%e7%89%87.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<h4 id="tips接下来需要写代码了请各位阁下做好心理准备">
+    <a href="#tips%e6%8e%a5%e4%b8%8b%e6%9d%a5%e9%9c%80%e8%a6%81%e5%86%99%e4%bb%a3%e7%a0%81%e4%ba%86%e8%af%b7%e5%90%84%e4%bd%8d%e9%98%81%e4%b8%8b%e5%81%9a%e5%a5%bd%e5%bf%83%e7%90%86%e5%87%86%e5%a4%87" class="header-anchor">#</a>
+    <em>Tips:接下来需要写代码了,请各位阁下做好心理准备!</em>
+</h4><p>Ok,相信大家都做好了准备,接下来就是愉快的代码编写时间!</p>
 <p>先回到主界面,看到右上角一个名为script.rpy的脚本文件吗？
 点击它,就可以跳转到&hellip;&hellip;什么?你没跳转?那就跟着下面图片去配置吧!</p>
-<h3 id="分支头2可以跳转的跳过">分支头2,可以跳转的跳过</h3>
-<p><div class="not-prose">
-<figure>
-    <img src="https://galgame.dev/assets/uploads/files/1704785027422-b47369f1-de65-4afe-9f98-175c1b1459e5-%e5%9b%be%e7%89%87.png"
-      alt="" 
-      loading="lazy"
-    >
-  </figure></div>
-
-<div class="not-prose">
-<figure>
-    <img src="https://galgame.dev/assets/uploads/files/1704785055944-59277599-8083-44cb-a23a-876246a369fd-%e5%9b%be%e7%89%87.png"
-      alt="" 
-      loading="lazy"
-    >
-  </figure></div>
-
-<div class="not-prose">
-<figure>
-    <img src="https://galgame.dev/assets/uploads/files/1704785077674-68bcce21-e3ec-44c6-b37e-19c64fa0e573-%e5%9b%be%e7%89%87.png"
-      alt="" 
-      loading="lazy"
-    >
-  </figure></div>
-自行选择一个你喜欢的编辑器吧!</p>
-<h3 id="分支尾2可以跳转的跳过">分支尾2,可以跳转的跳过</h3>
-<p>这是文件中的代码:</p>
+<h3 id="分支头2可以跳转的跳过">
+    <a href="#%e5%88%86%e6%94%af%e5%a4%b42%e5%8f%af%e4%bb%a5%e8%b7%b3%e8%bd%ac%e7%9a%84%e8%b7%b3%e8%bf%87" class="header-anchor">#</a>
+    分支头2,可以跳转的跳过
+</h3><p><img src="https://galgame.dev/assets/uploads/files/1704785027422-b47369f1-de65-4afe-9f98-175c1b1459e5-%e5%9b%be%e7%89%87.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
+<img src="https://galgame.dev/assets/uploads/files/1704785055944-59277599-8083-44cb-a23a-876246a369fd-%e5%9b%be%e7%89%87.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
+<img src="https://galgame.dev/assets/uploads/files/1704785077674-68bcce21-e3ec-44c6-b37e-19c64fa0e573-%e5%9b%be%e7%89%87.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+>自行选择一个你喜欢的编辑器吧!</p>
+<h3 id="分支尾2可以跳转的跳过">
+    <a href="#%e5%88%86%e6%94%af%e5%b0%be2%e5%8f%af%e4%bb%a5%e8%b7%b3%e8%bd%ac%e7%9a%84%e8%b7%b3%e8%bf%87" class="header-anchor">#</a>
+    分支尾2,可以跳转的跳过
+</h3><p>这是文件中的代码:</p>
 <pre tabindex="0"><code># 游戏的脚本可置于此文件中。                                                  
                      
 # 声明此游戏使用的角色。颜色参数可使角色姓名着色。
@@ -413,8 +465,10 @@ label start:
 但是,我们还是一步一步来比较好</p>
 <ul>
 <li>
-<h3 id="首先一个普通的gal需要角色">首先,一个普通的gal需要角色</h3>
-</li>
+<h3 id="首先一个普通的gal需要角色">
+    <a href="#%e9%a6%96%e5%85%88%e4%b8%80%e4%b8%aa%e6%99%ae%e9%80%9a%e7%9a%84gal%e9%9c%80%e8%a6%81%e8%a7%92%e8%89%b2" class="header-anchor">#</a>
+    首先,一个普通的gal需要角色
+</h3></li>
 <li>Q:如何创建一个角色?</li>
 <li>A:define [随便一个字符串,用来代表你的角色,每个角色需要有一个唯一的字符串!<code>在下文用&quot;e&quot;表示</code>] = Character (&ldquo;你的角色名&rdquo;)
 Tips:编写代码时需要注意大小写,缩进,以及符号(必须为英文字符!)</li>
@@ -426,8 +480,10 @@ Tips:在Ren&rsquo;py中游戏会从&quot;label start:&ldquo;开始,角色说话�
 <li>Q：默认背景好难看，怎么更换背景？</li>
 <li>A：同上，只不过需要将show改为scene</li>
 </ul>
-<h3 id="代码实践">代码实践</h3>
-<pre tabindex="0"><code>#在文本前面加&#34;#&#34;叫做注释，注释不会被引擎运行——所以你可以在这里夹杂私货[笑]
+<h3 id="代码实践">
+    <a href="#%e4%bb%a3%e7%a0%81%e5%ae%9e%e8%b7%b5" class="header-anchor">#</a>
+    代码实践
+</h3><pre tabindex="0"><code>#在文本前面加&#34;#&#34;叫做注释，注释不会被引擎运行——所以你可以在这里夹杂私货[笑]
 #好吧，事实上这个是用来备忘的，一些复杂的项目的代码时间久了你有可能会记不住你写的是什么，这时注释就起到作用了
 </code></pre><pre tabindex="0"><code>#创建一个角色Eutopia
 
@@ -449,83 +505,89 @@ label start:
     #游戏在此结束
     return
 </code></pre><p>左代码,右程序
-<div class="not-prose">
-<figure>
-    <img src="https://galgame.dev/assets/uploads/files/1704829922606-3cccfffc-8e56-400f-9a46-174f3c034a80-%e5%9b%be%e7%89%87.png"
-      alt="" 
-      loading="lazy"
-    >
-  </figure></div>
-
-<div class="not-prose">
-<figure>
-    <img src="https://galgame.dev/assets/uploads/files/1704829951846-b32eba51-31d5-4b83-894e-ac025e286719-%e5%9b%be%e7%89%87.png"
-      alt="" 
-      loading="lazy"
-    >
-  </figure></div>
-</p>
-<h3 id="图像的基本运用">图像的基本运用</h3>
-<ul>
+<img src="https://galgame.dev/assets/uploads/files/1704829922606-3cccfffc-8e56-400f-9a46-174f3c034a80-%e5%9b%be%e7%89%87.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
+<img src="https://galgame.dev/assets/uploads/files/1704829951846-b32eba51-31d5-4b83-894e-ac025e286719-%e5%9b%be%e7%89%87.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<h3 id="图像的基本运用">
+    <a href="#%e5%9b%be%e5%83%8f%e7%9a%84%e5%9f%ba%e6%9c%ac%e8%bf%90%e7%94%a8" class="header-anchor">#</a>
+    图像的基本运用
+</h3><ul>
 <li>头像设置</li>
 <li>图像的移动与位置</li>
 </ul>
 <ol>
 <li>头像设置
-<div class="not-prose">
-<figure>
-    <img src="https://galgame.dev/assets/uploads/files/1704970326220-da2eec49-491c-4f14-a988-61ae3848de6f-image.png"
-      alt="" 
-      loading="lazy"
-    >
-  </figure></div>
-
+<img src="https://galgame.dev/assets/uploads/files/1704970326220-da2eec49-491c-4f14-a988-61ae3848de6f-image.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
 这是肥肠简单的一个办法:在image后面加一个side就行了,其余与立绘一样</li>
 </ol>
 <pre tabindex="0"><code>image side eutopia=&#34;eutopia-h.png&#34;
 </code></pre><p><em>这里头像资源文件名叫eutopia-h.png,你也可以使用其他的,最好是透明png格式</em>
 2. 图像的移动与位置</p>
-<h3 id="eutopia换装ing"><del>eutopia换装ing&hellip;</del></h3>
-<p><div class="not-prose">
-<figure>
-    <img src="https://galgame.dev/assets/uploads/files/1704971423536-3a0f103a-c9c6-4202-9a28-d6dbdb2703a6-image.png"
-      alt="" 
-      loading="lazy"
-    >
-  </figure></div>
-
+<h3 id="eutopia换装ing">
+    <a href="#eutopia%e6%8d%a2%e8%a3%85ing" class="header-anchor">#</a>
+    <del>eutopia换装ing&hellip;</del>
+</h3><p><img src="https://galgame.dev/assets/uploads/files/1704971423536-3a0f103a-c9c6-4202-9a28-d6dbdb2703a6-image.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
 [renpy默认位置是中间,具体写法请查看前面立绘部分]
 这时,如果我们想让她出现在左或者右边该怎么写呢？</p>
 <pre tabindex="0"><code>show eutopia at left #出现在左
 show eutopia at right #出现在右
 </code></pre><p>出现在左:
-<div class="not-prose">
-<figure>
-    <img src="https://galgame.dev/assets/uploads/files/1704971890619-83fe7d15-75b1-44ac-a946-9ef2f3eec40f-image.png"
-      alt="" 
-      loading="lazy"
-    >
-  </figure></div>
-
+<img src="https://galgame.dev/assets/uploads/files/1704971890619-83fe7d15-75b1-44ac-a946-9ef2f3eec40f-image.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
 出现在右:
-<div class="not-prose">
-<figure>
-    <img src="https://galgame.dev/assets/uploads/files/1704971988426-0e7f74dc-0988-416e-831d-129d2dc4b0c0-image.png"
-      alt="" 
-      loading="lazy"
-    >
-  </figure></div>
-</p>
-<h5 id="附页">附页</h5>
-<p><em>Tips:文件夹结构图</em>
-<div class="not-prose">
-<figure>
-    <img src="https://galgame.dev/assets/uploads/files/1704825226932-6882b6c9-03c7-4895-af51-fd735ba7e1b7-%e5%9b%be%e7%89%87.png"
-      alt="" 
-      loading="lazy"
-    >
-  </figure></div>
-
+<img src="https://galgame.dev/assets/uploads/files/1704971988426-0e7f74dc-0988-416e-831d-129d2dc4b0c0-image.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<h5 id="附页">
+    <a href="#%e9%99%84%e9%a1%b5" class="header-anchor">#</a>
+    附页
+</h5><p><em>Tips:文件夹结构图</em>
+<img src="https://galgame.dev/assets/uploads/files/1704825226932-6882b6c9-03c7-4895-af51-fd735ba7e1b7-%e5%9b%be%e7%89%87.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+>
 <em>images:存放图片
 gui:存放游戏界面资源
 audio:存放音频文件
@@ -533,75 +595,139 @@ tl:翻译文件
 saves:游戏存档文件
 cache:缓存文件</em></p>
 
-    </article>
-
-    
-
-
-
-  </div>
-</div>
-
-  </main>
-  <footer class="flex flex-none justify-center">
-    <section class="flex flex-col md:flex-row mx-2 md:mx-0 gap-2 md:gap-0 justify-between w-full max-w-4xl lg:max-w-5xl py-6 text-slate-500 dark:text-slate-300">
-  <div class="flex flex-row">
-    
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-
-  </div>
-  <div class="grow"></div>
-  <div class="flex flex-row">
-    <i class="h-6 w-6 flex-none"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-   <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
-   <path d="M14 9.75a3.016 3.016 0 0 0 -4.163 .173a2.993 2.993 0 0 0 0 4.154a3.016 3.016 0 0 0 4.163 .173"></path>
-</svg>
-</i> 2023 - 2024 Error Eutopia
-    
-  </div>
-  
-  <div class="flex flex-row">
-    <span class="ml-0 pl-0 md:ml-2 md:pl-2 border-l-0 md:border-l border-slate-300 dark:border-slate-400">
-      Powered by <a href="https://gohugo.io" target="_blank" rel="noopener" class="underline">Hugo</a> <span class="text-red-600">&hearts;</span> <a href="https://github.com/tomowang/hugo-theme-tailwind" target="_blank" rel="noopener" class="underline">Tailwind</a>
-    </span>
-  </div>
-  
 </section>
 
-  </footer><script src="/main.min.c6372b6836971865bd94bfde974748aca8415824a2facab6ccd66a87384bfacb.js"></script>
-  
-  <div class="hidden top-1 right-1" id="code-copy">
-    <i class="h-6 w-6 block">
-      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copy" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-  <path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" />
-  <path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" />
-</svg>
 
-    </i>
-  </div>
-  <div class="hidden top-1 right-1" id="code-copy-done">
-    <i class="h-6 w-6 block">
-      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-check" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-  <path d="M5 12l5 5l10 -10" />
-</svg>
+    <footer class="article-footer">
+    
 
-    </i>
-  </div><script src="/code-copy.min.4be95a7068ec721962fd0df64ce1c8673df8035fde465874f1e6e67e2aac7f71.js"></script>
-  
+    </footer>
 
-</body>
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2023 - 
+        
+        2024 Error Eutopia
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.25.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
 </html>

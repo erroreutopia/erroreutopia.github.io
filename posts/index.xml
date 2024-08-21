@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Posts on Error:Eutopia</title>
-        <link>https://examnple.com/posts/</link>
+        <link>http://localhost:1313/posts/</link>
         <description>Recent content in Posts on Error:Eutopia</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
         <copyright>Error Eutopia</copyright>
-        <lastBuildDate>Mon, 15 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://examnple.com/posts/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 15 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>去年今天</title>
-        <link>https://examnple.com/posts/%E5%8E%BB%E5%B9%B4%E4%BB%8A%E5%A4%A9/</link>
+        <link>http://localhost:1313/posts/%E5%8E%BB%E5%B9%B4%E4%BB%8A%E5%A4%A9/</link>
         <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://examnple.com/posts/%E5%8E%BB%E5%B9%B4%E4%BB%8A%E5%A4%A9/</guid>
+        <guid>http://localhost:1313/posts/%E5%8E%BB%E5%B9%B4%E4%BB%8A%E5%A4%A9/</guid>
         <description>&lt;p&gt;2023-01-16
-&lt;img src=&#34;https://examnple.com/images/Screenshot_20230116_200653.jpg&#34;
+&lt;img src=&#34;http://localhost:1313/images/Screenshot_20230116_200653.jpg&#34;
 	
 	
 	
@@ -25,7 +25,7 @@
 	
 &gt;
 2024-01-16
-&lt;img src=&#34;https://examnple.com/images/20240116.png&#34;
+&lt;img src=&#34;http://localhost:1313/images/20240116.png&#34;
 	
 	
 	
@@ -39,10 +39,10 @@
         </item>
         <item>
         <title>Gal从ZERO到HERO的Renpy开发教程</title>
-        <link>https://examnple.com/posts/gal/</link>
+        <link>http://localhost:1313/posts/gal/</link>
         <pubDate>Thu, 11 Jan 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://examnple.com/posts/gal/</guid>
+        <guid>http://localhost:1313/posts/gal/</guid>
         <description>&lt;h1 id=&#34;人物对话与图像&#34;&gt;
     &lt;a href=&#34;#%e4%ba%ba%e7%89%a9%e5%af%b9%e8%af%9d%e4%b8%8e%e5%9b%be%e5%83%8f&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     人物对话与图像
@@ -394,20 +394,20 @@ cache:缓存文件&lt;/em&gt;&lt;/p&gt;
         </item>
         <item>
         <title>喵帕斯~</title>
-        <link>https://examnple.com/posts/gugu/</link>
+        <link>http://localhost:1313/posts/gugu/</link>
         <pubDate>Wed, 10 Jan 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://examnple.com/posts/gugu/</guid>
+        <guid>http://localhost:1313/posts/gugu/</guid>
         <description>&lt;p&gt;从前有一只鸽子前来咕咕:
 咕咕咕咕咕咕咕咕咕咕咕咕咕咕咕咕咕咕咕咕咕咕咕咕咕咕咕咕咕咕咕咕咕咕咕咕咕咕咕咕咕咕咕咕咕咕&lt;/p&gt;
 </description>
         </item>
         <item>
         <title>Linux打包流程 For wine Appimage</title>
-        <link>https://examnple.com/posts/linux/</link>
+        <link>http://localhost:1313/posts/linux/</link>
         <pubDate>Sun, 07 Jan 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://examnple.com/posts/linux/</guid>
+        <guid>http://localhost:1313/posts/linux/</guid>
         <description>&lt;h5 id=&#34;首先感谢一下linuxgamecn提供的标准化打包工具&#34;&gt;
     &lt;a href=&#34;#%e9%a6%96%e5%85%88%e6%84%9f%e8%b0%a2%e4%b8%80%e4%b8%8blinuxgamecn%e6%8f%90%e4%be%9b%e7%9a%84%e6%a0%87%e5%87%86%e5%8c%96%e6%89%93%e5%8c%85%e5%b7%a5%e5%85%b7&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     首先,感谢一下linuxgame.cn提供的标准化打包工具
@@ -422,7 +422,7 @@ Appimagetool(Github上有)&lt;/p&gt;
     &gt;链接&lt;/a&gt;{自带旧版本appimagetool以及wine依赖,但我们不需要}&lt;/p&gt;
 &lt;p&gt;记得下好游戏并成功运行在本机wine环境上&lt;/p&gt;
 &lt;p&gt;以及打包的灵魂:wine (可从archlinux包仓库或者debian包仓库获得)
-&lt;img src=&#34;https://examnple.com/images/6x.png&#34;
+&lt;img src=&#34;http://localhost:1313/images/6x.png&#34;
 	
 	
 	
@@ -433,7 +433,7 @@ Appimagetool(Github上有)&lt;/p&gt;
 	
 &gt;
 这里我们演示的是&amp;hellip;&amp;hellip; GINKA !
-&lt;img src=&#34;https://examnple.com/images/0x.png&#34;
+&lt;img src=&#34;http://localhost:1313/images/0x.png&#34;
 	
 	
 	
@@ -444,7 +444,7 @@ Appimagetool(Github上有)&lt;/p&gt;
 	
 &gt;
 成品演示:
-&lt;img src=&#34;https://examnple.com/images/7x.png&#34;
+&lt;img src=&#34;http://localhost:1313/images/7x.png&#34;
 	
 	
 	
@@ -481,7 +481,7 @@ Appimagetool(Github上有)&lt;/p&gt;
     &lt;a href=&#34;#%e6%89%93%e5%8c%85%e6%b5%81%e7%a8%8b&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     打包流程
 &lt;/h5&gt;&lt;p&gt;事实上没什么可以讲的,请看图:
-&lt;img src=&#34;https://examnple.com/images/2x.png&#34;
+&lt;img src=&#34;http://localhost:1313/images/2x.png&#34;
 	
 	
 	
@@ -491,7 +491,7 @@ Appimagetool(Github上有)&lt;/p&gt;
 	
 	
 &gt;
-&lt;img src=&#34;https://examnple.com/images/11x.png&#34;
+&lt;img src=&#34;http://localhost:1313/images/11x.png&#34;
 	
 	
 	
@@ -604,7 +604,7 @@ export WINE=./bin/wine
 $WINE game/run.exe
 export WINEDLLPATH=$(pwd)/lib/wine/i386-windows/:$(pwd)/lib/wine/x86_64-windows/
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;非常简单的几句代码,分别设定了wine主目录的环境变量,wine c盘的环境变量,wine的架构(没有设定,为none),以及wine的可执行程序
-&lt;img src=&#34;https://examnple.com/images/9x.png&#34;
+&lt;img src=&#34;http://localhost:1313/images/9x.png&#34;
 	
 	
 	
@@ -615,7 +615,7 @@ export WINEDLLPATH=$(pwd)/lib/wine/i386-windows/:$(pwd)/lib/wine/x86_64-windows/
 	
 &gt;
 $WINE game/run.exe (用wine运行game目录下的run.exe)
-&lt;img src=&#34;https://examnple.com/images/3x.png&#34;
+&lt;img src=&#34;http://localhost:1313/images/3x.png&#34;
 	
 	
 	
@@ -625,7 +625,7 @@ $WINE game/run.exe (用wine运行game目录下的run.exe)
 	
 	
 &gt;
-&lt;img src=&#34;https://examnple.com/images/8x.png&#34;
+&lt;img src=&#34;http://localhost:1313/images/8x.png&#34;
 	
 	
 	
@@ -640,7 +640,7 @@ $WINE game/run.exe (用wine运行game目录下的run.exe)
     打包
 &lt;/h3&gt;&lt;p&gt;打包之前要注意以下几点:
 1.在此之前先运行一下games文件,检查game/C 文件夹是否有以下文件,没有就失败了(可以运行,但喜提 -1GB空间,你可以理解为这是优化)
-&lt;img src=&#34;https://examnple.com/images/10x.png&#34;
+&lt;img src=&#34;http://localhost:1313/images/10x.png&#34;
 	
 	
 	
@@ -652,7 +652,7 @@ $WINE game/run.exe (用wine运行game目录下的run.exe)
 &gt;
 2.一个game.png文件推荐256x256(不是也行)
 3.编辑desktop
-&lt;img src=&#34;https://examnple.com/images/5x.png&#34;
+&lt;img src=&#34;http://localhost:1313/images/5x.png&#34;
 	
 	
 	
@@ -680,7 +680,7 @@ StartupNotify=false
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;ARCH=x86_64 ./appimagetool-x86_64.AppImage squashfs-root GINKA.Appimage
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;解释:
 [ARCH=架构] [运行appimagetool] [参数1:所要打包的文件夹] [参数2:打包成什么]&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://examnple.com/images/4x.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/4x.png&#34;
 	
 	
 	
@@ -691,7 +691,7 @@ StartupNotify=false
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;出现以下场景就成功了
-&lt;img src=&#34;https://examnple.com/images/1x.png&#34;
+&lt;img src=&#34;http://localhost:1313/images/1x.png&#34;
 	
 	
 	
@@ -706,12 +706,12 @@ StartupNotify=false
         </item>
         <item>
         <title>测试</title>
-        <link>https://examnple.com/posts/%E6%B5%8B%E8%AF%95/</link>
+        <link>http://localhost:1313/posts/%E6%B5%8B%E8%AF%95/</link>
         <pubDate>Sun, 31 Dec 2023 00:00:00 +0000</pubDate>
         
-        <guid>https://examnple.com/posts/%E6%B5%8B%E8%AF%95/</guid>
+        <guid>http://localhost:1313/posts/%E6%B5%8B%E8%AF%95/</guid>
         <description>&lt;p&gt;测试文档&amp;hellip;&amp;hellip;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://examnple.com/images/0.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/0.png&#34;
 	
 	
 	

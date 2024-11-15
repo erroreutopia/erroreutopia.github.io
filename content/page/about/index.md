@@ -1,5 +1,5 @@
 ---
-title: About
+title: 关于
 description: The About Page
 date: '2024-11-12'
 aliases:

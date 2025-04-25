@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>随笔 on ErrorEutopia</title>
+        <link>http://localhost:1313/categories/%E9%9A%8F%E7%AC%94/</link>
+        <description>Recent content in 随笔 on ErrorEutopia</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <lastBuildDate>Fri, 25 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/%E9%9A%8F%E7%AC%94/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>我所期渴望,便是我所而不得</title>
+        <link>http://localhost:1313/post/essay/essay/</link>
+        <pubDate>Fri, 25 Apr 2025 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/post/essay/essay/</guid>
+        <description></description>
+        </item>
+        
+    </channel>
+</rss>

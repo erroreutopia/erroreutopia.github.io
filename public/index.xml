@@ -26,13 +26,37 @@
 </description>
         </item>
         <item>
+        <title>关于</title>
+        <link>http://localhost:1313/page/about/</link>
+        <pubDate>Tue, 12 Nov 2024 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/page/about/</guid>
+        <description>&lt;p&gt;None&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>归档</title>
-        <link>http://localhost:1313/page/</link>
+        <link>http://localhost:1313/page/archives/</link>
         <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/page/</guid>
-        <description>&lt;p&gt;hihihi&lt;/p&gt;
-</description>
+        <guid>http://localhost:1313/page/archives/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>搜索</title>
+        <link>http://localhost:1313/page/search/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/page/search/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>链接</title>
+        <link>http://localhost:1313/page/links/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>http://localhost:1313/page/links/</guid>
+        <description></description>
         </item>
         
     </channel>

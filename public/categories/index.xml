@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Categories on ErrorEutopia</title>
-        <link>http://localhost:1313/categories/</link>
+        <link>https://example.org/categories/</link>
         <description>Recent content in Categories on ErrorEutopia</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Mon, 12 May 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 10 Jun 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://example.org/categories/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>随笔</title>
-        <link>http://localhost:1313/categories/%E9%9A%8F%E7%AC%94/</link>
-        <pubDate>Mon, 12 May 2025 00:00:00 +0000</pubDate>
+        <link>https://example.org/categories/%E9%9A%8F%E7%AC%94/</link>
+        <pubDate>Tue, 10 Jun 2025 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/categories/%E9%9A%8F%E7%AC%94/</guid>
+        <guid>https://example.org/categories/%E9%9A%8F%E7%AC%94/</guid>
         <description></description>
         </item>
         

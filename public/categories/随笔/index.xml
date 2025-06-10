@@ -2,33 +2,40 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>随笔 on ErrorEutopia</title>
-        <link>http://localhost:1313/categories/%E9%9A%8F%E7%AC%94/</link>
+        <link>https://example.org/categories/%E9%9A%8F%E7%AC%94/</link>
         <description>Recent content in 随笔 on ErrorEutopia</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Mon, 12 May 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/%E9%9A%8F%E7%AC%94/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>生命啊,它苦涩如歌</title>
-        <link>http://localhost:1313/post/essay/essay2/</link>
-        <pubDate>Mon, 12 May 2025 00:00:00 +0000</pubDate>
+        <lastBuildDate>Tue, 10 Jun 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://example.org/categories/%E9%9A%8F%E7%AC%94/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>我已无法正常思考!!!</title>
+        <link>https://example.org/post/essay/essay3/</link>
+        <pubDate>Tue, 10 Jun 2025 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/post/essay/essay2/</guid>
-        <description>&lt;pre&gt;&lt;code&gt;我曾活过,于这世间。
-掬一捧风信子，随风飘落碑前。
-它抚动地平线，将往昔答在墓沿，
-可谁人折下橄榄枝，把这一切刻在扉页？
-又谁人噙泪回眸，与“我们”诉说过往的心田。
-
-煮一杯清茶，座落于远方。
-摩挲着笔，静思在窗前，纸面早已洇墨。
-&lt;/code&gt;&lt;/pre&gt;
+        <guid>https://example.org/post/essay/essay3/</guid>
+        <description>&lt;p&gt;我已无法正常思考&lt;/p&gt;
+&lt;p&gt;业火吞噬着我;我的理性,我的意志,我的存在&lt;/p&gt;
+&lt;p&gt;昏暗的过往戏谑我,将我的身首挂在耻辱柱&lt;/p&gt;
+&lt;p&gt;作呕的现实敲碎我的脊骨,撕下我的血肉,吞噬着,敲打着!&lt;/p&gt;
+&lt;p&gt;我已无法正常思考&lt;/p&gt;
+&lt;p&gt;再次看向星空,那即是存在,那便是归处与故乡&lt;/p&gt;
+&lt;p&gt;书页翻回上一页,又回到下一页,模糊不清的文字映入瞳孔&lt;/p&gt;
+&lt;p&gt;枯木不堪重负,连同枯枝孕育那小小鸟巢一同坠落&lt;/p&gt;
+&lt;p&gt;我已无法正常思考&lt;/p&gt;
+&lt;p&gt;理性已成为疯狂&lt;/p&gt;
+&lt;p&gt;我已无法正常思考!&lt;/p&gt;
+&lt;p&gt;意志只剩软弱&lt;/p&gt;
+&lt;p&gt;我已无法正常思考!!!&lt;/p&gt;
+&lt;p&gt;存在,已然成为荒芜废墟&lt;/p&gt;
+&lt;p&gt;业火烧却鲜血,唯留下倒塌的枯木与残损的骨肉&lt;/p&gt;
+&lt;p&gt;我&amp;hellip;也已然无法思考&lt;/p&gt;
 </description>
         </item>
         <item>
         <title>我所其渴望,便是我所而不得</title>
-        <link>http://localhost:1313/post/essay/essay/</link>
+        <link>https://example.org/post/essay/essay/</link>
         <pubDate>Fri, 25 Apr 2025 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/post/essay/essay/</guid>
+        <guid>https://example.org/post/essay/essay/</guid>
         <description>&lt;pre&gt;&lt;code&gt;我梦见。
 一个温馨的家，一棵古老的巨树。
 家中有我所其爱，树上有我所痛。

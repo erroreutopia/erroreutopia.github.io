@@ -2,16 +2,40 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Posts on ErrorEutopia</title>
-        <link>http://localhost:1313/post/</link>
+        <link>https://example.org/post/</link>
         <description>Recent content in Posts on ErrorEutopia</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <lastBuildDate>Fri, 25 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 10 Jun 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://example.org/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>我已无法正常思考!!!</title>
+        <link>https://example.org/post/essay/essay3/</link>
+        <pubDate>Tue, 10 Jun 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://example.org/post/essay/essay3/</guid>
+        <description>&lt;p&gt;我已无法正常思考&lt;/p&gt;
+&lt;p&gt;业火吞噬着我;我的理性,我的意志,我的存在&lt;/p&gt;
+&lt;p&gt;昏暗的过往戏谑我,将我的身首挂在耻辱柱&lt;/p&gt;
+&lt;p&gt;作呕的现实敲碎我的脊骨,撕下我的血肉,吞噬着,敲打着!&lt;/p&gt;
+&lt;p&gt;我已无法正常思考&lt;/p&gt;
+&lt;p&gt;再次看向星空,那即是存在,那便是归处与故乡&lt;/p&gt;
+&lt;p&gt;书页翻回上一页,又回到下一页,模糊不清的文字映入瞳孔&lt;/p&gt;
+&lt;p&gt;枯木不堪重负,连同枯枝孕育那小小鸟巢一同坠落&lt;/p&gt;
+&lt;p&gt;我已无法正常思考&lt;/p&gt;
+&lt;p&gt;理性已成为疯狂&lt;/p&gt;
+&lt;p&gt;我已无法正常思考!&lt;/p&gt;
+&lt;p&gt;意志只剩软弱&lt;/p&gt;
+&lt;p&gt;我已无法正常思考!!!&lt;/p&gt;
+&lt;p&gt;存在,已然成为荒芜废墟&lt;/p&gt;
+&lt;p&gt;业火烧却鲜血,唯留下倒塌的枯木与残损的骨肉&lt;/p&gt;
+&lt;p&gt;我&amp;hellip;也已然无法思考&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>我所其渴望,便是我所而不得</title>
-        <link>http://localhost:1313/post/essay/essay/</link>
+        <link>https://example.org/post/essay/essay/</link>
         <pubDate>Fri, 25 Apr 2025 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:1313/post/essay/essay/</guid>
+        <guid>https://example.org/post/essay/essay/</guid>
         <description>&lt;pre&gt;&lt;code&gt;我梦见。
 一个温馨的家，一棵古老的巨树。
 家中有我所其爱，树上有我所痛。
